@@ -52,6 +52,21 @@ Do not mark a day complete until the learner finishes its lesson and practice wo
 - Recommend booking the exam after two fresh timed scores of at least 32 out of 40.
 - Use original questions or link to official ISTQB sample exams. Do not copy paid question banks.
 
+## Official sample questions and answers
+
+Never convert or reconvert a PDF to Markdown. Always use the current converted Markdown files already in this repository. Do not regenerate, replace, or refresh a Markdown conversion from its PDF; consult the PDF only to verify ambiguous visual content.
+
+When an agent needs an official sample question, answer key, or rationale, it must use the searchable Markdown conversion that corresponds to the requested sample set:
+
+- Sample A: `ISTQB-Foundation/resources/official/ISTQB-CTFL-Sample-A-Questions-v1.7.md` and `ISTQB-Foundation/resources/official/ISTQB-CTFL-Sample-A-Answers-v1.7.md`
+- Sample B: `ISTQB-Foundation/resources/official/ISTQB-CTFL-Sample-B-Questions-v1.7.md` and `ISTQB-Foundation/resources/official/ISTQB-CTFL-Sample-B-Answers-v1.7.md`
+- Sample C: `ISTQB-Foundation/resources/official/ISTQB-CTFL-Sample-C-Questions-v1.6.md` and `ISTQB-Foundation/resources/official/ISTQB-CTFL-Sample-C-Answers-v1.6.md`
+- Sample D: `ISTQB-Foundation/resources/official/ISTQB-CTFL-Sample-D-Questions-v1.5.md` and `ISTQB-Foundation/resources/official/ISTQB-CTFL-Sample-D-Answers-v1.5.md`
+
+Use the Questions file to administer a mock or retrieve a question. Do not open or use the corresponding Answers file until the learner has submitted an answer or completed the timed mock. When reviewing an answer, read its full rationale and verify the relevant learning objective against `ISTQB-Foundation/resources/official/ISTQB-CTFL-Syllabus-v4.0.1.md` before explaining it.
+
+The sample Markdown files contain `pdf-page-N` anchors and matching source-page comments. Cite the sample set, question number, and physical PDF page when discussing an official sample question. The corresponding PDF remains the final authority for diagrams, formulas, tables, or wording that appears incomplete or ambiguous in Markdown.
+
 ## Commands from the learner
 
 - `Start today's study`: run the first unchecked day.

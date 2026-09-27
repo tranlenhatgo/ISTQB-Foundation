@@ -16,6 +16,7 @@
 3. Tự giải từng ví dụ trên giấy trước khi mở lời giải.
 4. Cuối mỗi chương, làm phần practice khi không mở tài liệu. Sau đó đọc phần giải thích, đừng chỉ nhớ chữ cái đáp án.
 5. Dùng checklist cuối tài liệu để tìm Learning Objective còn yếu rồi học lại phần tương ứng.
+6. Giữ official sample sets A–D chưa xem đáp án để luyện timed practice. Làm cả set trước khi mở answer document; sau đó giải thích vì sao từng distractor sai và ghi Learning Objective đứng sau mỗi lỗi.
 
 ### K-levels
 
@@ -66,7 +67,10 @@ Ví dụ được giữ nhỏ để dễ học. Trong công việc, bạn cần 
 - Tách rõ các khái niệm gần nhau: testing với debugging; verification với validation; confirmation với regression; product risk với project risk; severity với priority.
 - Khi tính toán, viết công thức và denominator trước khi thay số.
 - Với test technique, xác định **coverage item**: partition, boundary và neighbor, decision-table column, state/transition, statement hoặc branch.
+- Trước khi đọc kỹ options, xác định Learning Objective có khả năng đang được hỏi và task cần làm: identify, distinguish, calculate hay derive.
+- Làm đúng response instruction. Câu “Select TWO” chỉ hoàn tất khi bạn đã chọn hai options và có căn cứ độc lập cho cả hai.
 - Loại các phát biểu tuyệt đối như “testing chứng minh không còn defect”, trừ khi bối cảnh thật sự cho phép kết luận đó.
+- Cẩn thận với distractor gần đúng nhưng đổi một ISTQB term, đặt một task hợp lệ vào sai test activity, hoặc gán một benefit đúng cho sai technique.
 
 ---
 
@@ -308,51 +312,100 @@ CTFL v4.0.1, sections 1.4.5 và 1.5, PDF pages 21-23.
 
 ### Q1 - Classify the Chain
 
-Pricing policy nói VIP customer được giảm 15%, nhưng analyst ghi 10%. Developer implementation đúng 10%. Sau đó VIP customer phải trả quá nhiều. Hãy xác định error, defect và failure.
+Pricing policy quy định VIP customer được giảm 15%, nhưng analyst ghi 10% trong requirement. Developer implementation đúng 10%, và VIP customer phải trả quá nhiều. Cách phân loại nào đúng?
+
+A. Hành động của analyst là error; “10%” trong requirement là defect; việc tính giá quá cao là failure.  
+B. Hành động của analyst là defect; “10%” trong requirement là failure; việc tính giá quá cao là error.  
+C. Implementation của developer là error; customer là defect; policy là failure.  
+D. Việc thiếu review là failure; “10%” là root cause; việc tính giá quá cao là defect.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Việc analyst hiểu hoặc viết sai là **error**; “10%” trong requirement là **defect**; customer bị tính quá nhiều là **failure**. Root cause có thể là thiếu policy review hoặc ownership không rõ. Implementation của developer vẫn có thể conform với requirement bị defect.
+**A.** Hành động của con người tạo ra kết quả sai là **error**. Sai sót được tạo ra trong work product là **defect**. Hành vi sai quan sát được khi sử dụng là **failure**. Việc thiếu policy review có thể là một root cause.
+
+B, C và D đổi sai vai trò của error, defect, failure hoặc root cause.
+
+CTFL v4.0.1, section 1.2.3, PDF page 17.
 
 </details>
 
 ### Q2 - Choose the Activity
 
-Trong khi testing, 58% high-risk requirements đã được cover so với plan 80%. Manager phân thêm tester và hoãn low-risk tests. Activity nào đang diễn ra?
+Trong khi testing, 58% high-risk requirements đã được cover so với plan 80%. Manager phân thêm tester và hoãn low-risk tests. Những test activities nào đang diễn ra?
+
+A. Đo coverage là test analysis; thay đổi resources là test design.  
+B. Đo coverage là test execution; hoãn tests là test completion.  
+C. Đo coverage là test monitoring; thêm resources và reprioritize là test control.  
+D. Cả hai đều là test planning vì original plan đang được thay đổi.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-So sánh 58% với 80% là **test monitoring**; thêm resource và reprioritize là **test control**. Requirement-risk-test links phụ thuộc traceability.
+**C.** Test monitoring thu thập thông tin và so sánh actual progress với plan. Test control thực hiện corrective action để đạt test objectives. Vì vậy, so sánh 58% với 80% là monitoring; thêm tester và đổi priority là control.
+
+CTFL v4.0.1, section 1.4.1, PDF page 19.
 
 </details>
 
 ### Q3 - Identify the Principle
 
-Team chạy cùng một regression pack trong mười release. Pack vẫn bắt defect quay lại nhưng hiếm khi tìm defect mới. Team nên kết luận gì?
+Team đã chạy cùng một regression pack trong mười releases. Pack vẫn bắt được defect quay lại nhưng hiếm khi tìm ra defect mới. Team nên kết luận gì?
+
+A. Exhaustive testing đã đạt được vì không tìm thấy defect mới.  
+B. Tests wear out, nên cần làm mới tests và data nhưng vẫn giữ các regression checks còn hữu ích.  
+C. Defects không còn cluster vì cùng các tests vẫn pass.  
+D. Absence-of-defects fallacy có nghĩa là phải xóa regression pack.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-**Tests wear out** đối với việc tìm defect mới, nên team cần thêm hoặc cập nhật test và data. Không nên bỏ regression pack ổn định vì test lặp lại vẫn có thể phát hiện regression.
+**B.** Việc lặp lại mãi các tests không đổi thường phát hiện ngày càng ít defect mới. Tuy nhiên, các tests ổn định vẫn hữu ích để phát hiện regression, nên cần bổ sung hoặc làm mới chứ không xóa toàn bộ pack.
+
+CTFL v4.0.1, section 1.3, PDF page 18.
 
 </details>
 
 ### Q4 - Select Independence
 
-Một safety-critical calculation cần objective evidence, nhưng developer có algorithm expertise riêng. Cách tổ chức nào phù hợp?
+Một safety-critical calculation cần objective evidence, nhưng developers có kiến thức riêng sâu về algorithm. Cách tổ chức nào hợp lý?
+
+A. Chỉ để developers test vì familiarity luôn quan trọng hơn independence.  
+B. Chỉ để external team test vì maximum independence luôn là tối ưu.  
+C. Để developers thực hiện component testing chuyên sâu và independent team review assumptions cùng system-level testing.  
+D. Không cho developers và independent testers trao đổi để tránh shared bias.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Dùng **multiple levels of independence**. Developer thực hiện component tests chuyên sâu; independent team review assumptions và thực hiện system-level testing. Maximum independence không phải lựa chọn tốt trong mọi bối cảnh; team phải cân bằng independence với familiarity và communication.
+**C.** Kết hợp nhiều mức independence tận dụng được hiểu biết sâu của developer và góc nhìn khác của independent tester, đồng thời tránh isolation không cần thiết.
+
+A và B dùng khẳng định tuyệt đối. D làm hỏng collaboration và communication.
+
+CTFL v4.0.1, section 1.5.3, PDF page 22.
 
 </details>
 
 ### Q5 - Verification or Validation?
 
-ShopEZ implementation “guest checkout disabled” đúng specification. Usability research sau đó cho thấy phần lớn target users bỏ cuộc khi phải tạo account. Phát biểu nào đúng?
+ShopEZ implementation “guest checkout disabled” đúng như specification. Usability research sau đó cho thấy phần lớn target users bỏ cuộc khi phải tạo account. Phát biểu nào đúng nhất?
+
+A. Verification thất bại vì implementation làm đúng specification.  
+B. Validation thành công vì không có implementation defect nào được báo cáo.  
+C. Verification có thể thành công nhưng validation thất bại; đây là absence-of-defects fallacy.  
+D. Cả verification và validation đều thành công vì requirement được implementation chính xác.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Verification có thể đã thành công, nhưng validation cho thấy product không đáp ứng user/business needs. Đây là **absence-of-defects fallacy**.
+**C.** Làm đúng specification là verification. Đáp ứng user và stakeholder needs trong thực tế sử dụng là validation. Implementation chính xác của một requirement sai hoặc không hữu ích vẫn có thể khiến product thất bại.
+
+CTFL v4.0.1, sections 1.1 and 1.3, PDF pages 15 and 18.
 
 </details>
 
@@ -543,51 +596,96 @@ CTFL v4.0.1, section 2.3, PDF pages 31-32.
 
 ### Q1 - Level or Type?
 
-Team đo API response time giữa ShopEZ và payment provider trong production-like environment. Hãy xác định level và type phù hợp.
+Team đo API response time giữa ShopEZ và payment provider trong production-like environment. Cách phân loại nào đúng nhất?
+
+A. Component testing và functional testing  
+B. System integration testing và non-functional performance-efficiency testing  
+C. System testing và maintainability testing  
+D. Acceptance testing và security testing
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-**System integration testing** vì trọng tâm là interface giữa ShopEZ và external service; **non-functional performance-efficiency testing** vì team đánh giá response time.
+**B.** Test level là **system integration testing** vì focus là interface giữa ShopEZ và external service. Test type là **non-functional testing** vì response time là performance-efficiency characteristic.
+
+CTFL v4.0.1, sections 2.2.1 and 2.2.2, PDF pages 29-30.
 
 </details>
 
 ### Q2 - Test-First Classification
 
-Trước khi coding, developer viết failing unit test cho <code>calculateTax()</code>, thêm code cho đến khi test pass rồi refactor. Đây là approach nào?
+Trước khi code, developer viết một unit test đang fail cho <code>calculateTax()</code>, thêm code cho đến khi test pass, rồi refactor. Test-first approach nào được minh họa?
+
+A. Acceptance test-driven development (ATDD)  
+B. Behavior-driven development (BDD)  
+C. Test-driven development (TDD)  
+D. Risk-based testing
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-**TDD**. Nếu business, developer và tester cùng suy ra acceptance examples từ story criteria, đó là ATDD. Natural-language behavioral scenarios thường chỉ BDD.
+**C.** TDD dùng test-first cycle ở component level: viết test, viết lượng code vừa đủ để pass, rồi refactor. ATDD suy ra acceptance tests từ acceptance criteria; BDD thường mô tả desired behavior bằng natural language.
+
+CTFL v4.0.1, section 2.1.3, PDF pages 25-26.
 
 </details>
 
 ### Q3 - Confirmation and Regression
 
-Một fix thay đổi voucher calculation. Test nào là confirmation, test nào là regression?
+Một fix thay đổi voucher calculation. Lựa chọn nào phân biệt đúng confirmation testing với regression testing?
+
+A. Chạy lại đúng voucher test từng fail để confirmation; test các voucher classes, totals, tax, refunds và invoices khác để regression.  
+B. Test mọi unaffected feature để confirmation; yêu cầu developer inspect fix để regression.  
+C. Chạy lại đúng voucher test chỉ để regression; confirmation bắt buộc phải có test environment mới.  
+D. Review voucher requirement để confirmation; chỉ chạy lại failed test để regression.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Chạy lại đúng voucher test từng fail là confirmation. Kiểm tra voucher classes khác, totals, tax, refunds và invoices để tìm side effects là regression. Một test đôi khi phục vụ cả hai, nhưng objectives vẫn khác nhau.
+**A.** Confirmation testing kiểm tra original defect đã được sửa hay chưa. Regression testing kiểm tra change có gây adverse consequences ở nơi khác không. Một test đôi khi hỗ trợ cả hai, nhưng hai objectives vẫn khác nhau.
+
+CTFL v4.0.1, section 2.2.3, PDF page 30.
 
 </details>
 
 ### Q4 - Shift-Left Decision
 
-Team dự định chỉ chạy system-level load test một tuần trước release. Nêu hai shift-left actions mà vẫn giữ later testing cần thiết.
+Team dự kiến chỉ chạy system-level load test một tuần trước release. Cách xử lý nào áp dụng shift-left testing tốt nhất mà không loại bỏ later testing cần thiết?
+
+A. Thay system load test bằng requirements review vì static testing tìm được mọi performance problem.  
+B. Đưa toàn bộ production-scale load test xuống unit testing rồi bỏ mọi later performance testing.  
+C. Review performance requirements và architecture sớm; chạy component/API performance checks phù hợp trong CI; vẫn giữ representative system-level load testing.  
+D. Giữ toàn bộ performance testing ở tuần cuối vì shift left chỉ áp dụng cho functional tests.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Review performance requirements và architecture sớm; chạy component/API performance checks trong CI với stubs phù hợp. Vẫn giữ representative system-level testing vì integration, infrastructure và production-like load có thể làm lộ risk khác.
+**C.** Shift left khuyến khích testing sớm, như early reviews và lower-level performance checks, nhưng không có nghĩa là bỏ later test levels. System-level testing vẫn có thể phát hiện risks liên quan đến integration, infrastructure và production-like load.
+
+CTFL v4.0.1, section 2.1.5, PDF page 27.
 
 </details>
 
 ### Q5 - Maintenance Scope
 
-ShopEZ migrate database nhưng application code không đổi. Team nên test gì?
+ShopEZ migrate database nhưng application code không đổi. Test scope nào phù hợp nhất?
+
+A. Không cần testing vì maintenance testing chỉ cần khi application code thay đổi.  
+B. Chỉ static review migration script vì không cần execute migrated data.  
+C. Chỉ retest toàn bộ system, không cần prioritization hoặc migration-specific checks.  
+D. Test data-conversion completeness và accuracy, platform compatibility, critical business flows, rollback/restore và risk-based regression.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Data conversion completeness và accuracy, compatibility với database/platform mới, critical business flows, rollback/restore và risk-based regression. “Không đổi application code” không có nghĩa là “không cần testing”.
+**D.** Migration là một maintenance trigger. Scope có thể gồm test change, regression testing cho side effects và data migration tests. Application code không đổi không làm các risks này biến mất.
+
+CTFL v4.0.1, section 2.3.1, PDF page 31.
 
 </details>
 
@@ -659,7 +757,9 @@ CTFL v4.0.1, section 3.1.2, PDF pages 33-34.
 | Ví dụ mạnh | Ambiguity, omission, unreachable code, interface mismatch, standards deviation | Runtime behavior sai, timing, memory/resource behavior, performance |
 | Có thể bắt đầu khi nào? | Khi có draft đủ để review | Khi có executable software và environment phù hợp |
 
-Hai loại testing bổ sung cho nhau. Static testing có thể phát hiện missing requirement; dynamic testing không thể kiểm tra behavior chưa từng được specify hoặc implement. Dynamic testing đo response time dưới load; document review không thể tái tạo runtime performance.
+Hai loại testing bổ sung cho nhau; không loại nào bao hàm loại còn lại. Một số defect types chỉ có thể được tìm bằng static testing, số khác chỉ lộ ra bằng dynamic testing. Static testing có thể phát hiện requirement bị thiếu hoặc mâu thuẫn và unreachable code. Dynamic testing có thể cho thấy một feature đã specify nhưng chưa được implementation, đồng thời đo response time dưới load; document review không thể tái tạo runtime performance.
+
+CTFL v4.0.1, section 3.1.3, PDF page 34.
 
 Các defect thường được tìm rẻ hoặc dễ hơn bằng static testing gồm contradictory hoặc ambiguous requirements, poor modularization, undefined variables, duplicated/unreachable code, excessive complexity, coding-standard violations, parameter mismatches, một số security vulnerabilities và gaps trong test coverage.
 
@@ -767,51 +867,96 @@ CTFL v4.0.1, section 3.2.5, PDF page 37.
 
 ### Q1 - Static or Dynamic?
 
-Phân loại: (a) tool báo unreachable code; (b) load tool ghi response time 4 giây; (c) reviewer tìm acceptance criteria mâu thuẫn.
+Lựa chọn nào phân loại đúng các finding sau: (a) tool báo unreachable code; (b) load tool ghi response time 4 giây; (c) reviewer tìm thấy acceptance criteria mâu thuẫn?
+
+A. (a) Static analysis; (b) dynamic non-functional testing; (c) review/static testing  
+B. (a) Dynamic functional testing; (b) static analysis; (c) dynamic testing  
+C. (a) Review; (b) static non-functional testing; (c) component testing  
+D. (a) Confirmation testing; (b) regression testing; (c) system testing
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-(a) Static analysis; (b) dynamic non-functional testing; (c) review/static testing.
+**A.** Static analysis có thể tìm code anomalies mà không execute code. Đo response time cần dynamic execution. Review acceptance criteria là static testing activity.
+
+CTFL v4.0.1, section 3.1.3, PDF page 34.
 
 </details>
 
 ### Q2 - Order the Process
 
-Team đã phân phối đúng document và role instructions. Bước tiếp theo là gì, reviewer cần tạo output gì?
+Trong review initiation, team đã phân phối đúng document và role instructions. Bước nào thường diễn ra tiếp theo, và reviewers cần tạo ra gì?
+
+A. Fixing and reporting; reviewers sửa work product ngay mà không ghi findings.  
+B. Planning; lúc này reviewers mới chọn review type và estimate effort lần đầu.  
+C. Individual review; reviewers kiểm tra work product và ghi anomalies, questions cùng recommendations.  
+D. Communication and analysis; reviewers đóng mọi findings trước khi đọc work product.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-**Individual review** là bước tiếp theo. Reviewer ghi anomalies, questions và recommendations. Sau đó team thực hiện communication/analysis để classify và assign.
+**C.** Individual review diễn ra sau review initiation. Reviewers đánh giá work product và ghi potential anomalies, recommendations và questions trước communication and analysis.
+
+CTFL v4.0.1, section 3.2.2, PDF page 35.
 
 </details>
 
 ### Q3 - Select the Review Type
 
-Architect cần qualified peers để ra decision giữa hai security designs. Independent moderator sẽ dẫn dắt. Type nào phù hợp nhất?
+Architect cần qualified peers cùng quyết định giữa hai security designs. Một independent moderator sẽ điều phối. Review type nào phù hợp nhất?
+
+A. Informal review  
+B. Walkthrough  
+C. Technical review  
+D. Inspection
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-**Technical review** vì technically qualified reviewers cần đạt consensus và decisions dưới sự dẫn dắt của moderator. Inspection có objective chính là maximum anomaly detection và có formality cao hơn.
+**C.** Technical review do technically qualified reviewers thực hiện, được moderator dẫn dắt, và có thể nhằm tạo consensus hoặc đưa ra decision về technical alternatives. Inspection formal hơn và chủ yếu hướng tới phát hiện tối đa anomalies.
+
+CTFL v4.0.1, section 3.2.4, PDF pages 36-37.
 
 </details>
 
 ### Q4 - Identify Role Conflict
 
-Trong planned inspection, author cũng được giao làm scribe. Việc này có được phép không?
+Trong một planned inspection, author đồng thời được giao làm scribe. Phát biểu nào đúng?
+
+A. Đây là yêu cầu bắt buộc vì chỉ author mới ghi anomaly chính xác.  
+B. Điều này được phép khi author đồng thời là manager.  
+C. Điều này không được phép; trong inspection, author không thể làm review leader hoặc scribe.  
+D. Điều này không được phép vì author không bao giờ được tham gia bất kỳ review activity nào.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Không. Trong **inspection**, author không được làm review leader hoặc scribe. Hãy giao recorder khác.
+**C.** Inspection có roles và rules được xác định rõ; author không được làm review leader hoặc scribe. Author vẫn có thể tham gia theo những cách khác mà process cho phép.
+
+CTFL v4.0.1, sections 3.2.3 and 3.2.4, PDF pages 36-37.
 
 </details>
 
 ### Q5 - Improve a Failed Review
 
-Reviewers nhận 150 trang vào buổi sáng trước meeting kéo dài hai giờ, tìm được ít issues và tranh luận phòng thủ. Nêu ba correction có giá trị cao.
+Reviewers nhận 150 trang tài liệu vào sáng ngày diễn ra meeting hai giờ. Họ tìm được ít issue và tranh luận theo hướng phòng thủ. Gói cải tiến nào có khả năng giúp review hiệu quả nhất?
+
+A. Review các phần nhỏ hơn; dành đủ thời gian individual preparation; đặt objectives và exit criteria rõ ràng; dùng trained moderator để tạo thảo luận an toàn.  
+B. Tăng kích thước document; bỏ individual preparation; để author bảo vệ mọi điểm bị tranh luận.  
+C. Chỉ đo success bằng số giờ meeting và yêu cầu managers bác bỏ reviewers khi cần.  
+D. Bỏ review objectives và checklists để participants thảo luận bất kỳ topic nào.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Chia work product thành chunks nhỏ; cung cấp đủ individual preparation time; đặt objectives và exit criteria rõ; dùng trained moderator để tạo môi trường không blame; training participants. Ba thay đổi có lý do đều được chấp nhận.
+**A.** Review success factors gồm objectives rõ ràng, work-product size vừa phải, đủ preparation time, participant training và facilitation tạo văn hóa học hỏi thay vì đổ lỗi.
+
+CTFL v4.0.1, section 3.2.5, PDF page 37.
 
 </details>
 
@@ -847,7 +992,7 @@ CTFL v4.0.1, section 4.1, PDF page 39.
 
 EP chia data domain thành các **equivalence partitions** không rỗng và không chồng lấn. Test object được kỳ vọng xử lý mọi value trong cùng partition theo cùng cách. Một representative value thường đủ cho mỗi partition.
 
-Partition có thể mô tả inputs, outputs, configurations, internal values, time hoặc interface parameters; chúng có thể continuous/discrete, ordered/unordered, finite/infinite.
+Partition có thể mô tả inputs, outputs, configurations, internal values, time hoặc interface parameters; chúng có thể continuous/discrete, ordered/unordered, finite/infinite. Một partition không bắt buộc phải là một continuous range. Ví dụ, “mọi value chia hết cho 10 nhưng không chia hết cho 20” có thể là một discrete partition nếu system xử lý các values đó theo cùng behavior.
 
 **Valid partition** chứa values mà system cần xử lý như valid. **Invalid partition** chứa values cần bị reject, ignore hoặc xử lý theo invalid rule. Team phải thống nhất ý nghĩa này.
 
@@ -861,6 +1006,8 @@ Partition có thể mô tả inputs, outputs, configurations, internal values, t
 6. Tính coverage:
 
 <code>EP coverage = exercised partitions / identified partitions × 100%</code>
+
+Khi thực tế cho phép, hãy exercise từng invalid partition bằng test riêng. Nếu một test chứa nhiều invalid values, một input bị reject sớm có thể che mất behavior của input khác, khiến khó xác định input nào gây rejection.
 
 ### Worked Example
 
@@ -883,6 +1030,8 @@ Giả sử payment method có partitions card, wallet, bank transfer; customer t
 3. bank transfer + guest.
 
 Ba test này không cover toàn bộ 3 × 2 = 6 combinations. Đừng gọi Each Choice là combination coverage.
+
+Trước hết, loại các infeasible combinations do business rules tạo ra. Sau đó chọn feasible tests cover được nhiều partitions chưa cover nhất. Constraints có thể khiến minimum Each Choice suite lớn hơn số partition lớn nhất của một input set. Không được chọn impossible combination chỉ để giảm số tests.
 
 ### Common EP Mistakes
 
@@ -911,6 +1060,10 @@ Coverage:
 <code>2-value BVA coverage = exercised identified boundary values / total identified boundary values × 100%</code>
 
 Tên “2-value” chỉ hai coverage items tại mỗi boundary, không phải hai values cho toàn input.
+
+Nếu một known endpoint của input domain cũng là partition boundary, phải đưa endpoint đó vào. Ví dụ, nếu password length domain bắt đầu tại 0 thì <code>0</code> là boundary, dù validity rule chính là “6 đến 12”. Existing tests hoặc starting conditions chỉ được tính khi chúng thực sự exercise coverage item.
+
+CTFL v4.0.1, section 4.2.2, PDF page 40.
 
 ### 3-Value BVA
 
@@ -1018,6 +1171,10 @@ Strength relation:
 
 Quan hệ ngược không đúng. Một state có thể được reach qua một transition trong khi transition khác đi vào nó chưa được test. Khi test invalid transition, nên dùng một invalid transition trong mỗi test để giảm defect masking.
 
+Khi giải câu hỏi về event sequence, bắt đầu từ initial state được cho và đi từng event một. Chỉ đánh dấu valid transition khi path thực sự đi qua transition đó. Khi đến terminal state, hãy dừng hoặc áp dụng đúng behavior mà model định nghĩa; những event names đứng sau không tự động tạo coverage. Muốn giảm số tests, hãy tìm một executable path nối được nhiều uncovered transitions trước khi bắt đầu test mới.
+
+CTFL v4.0.1, section 4.2.4, PDF pages 41-42.
+
 > **Mẹo nhớ:** State transition testing quan tâm đến sequence. Current state quyết định event sẽ tạo result nào.
 
 CTFL v4.0.1, section 4.2.4, PDF page 42.
@@ -1031,6 +1188,10 @@ Coverage items là executable statements.
 <code>statement coverage = executed statements / total executable statements × 100%</code>
 
 Ở 100%, mọi executable statement đã chạy ít nhất một lần. Mức này không chứng minh từng statement đúng và có thể bỏ data-dependent defects hoặc decision outcomes.
+
+Không được cộng thẳng coverage percentages của các tests riêng lẻ, vì mỗi percentage mô tả một set coverage items. Nếu một test cover 40% statements và test khác cover 65%, combined coverage nằm trong khoảng 65% đến 100%. Vì <code>40 + 65 &gt; 100</code>, ít nhất 5% statements phải overlap.
+
+CTFL v4.0.1, section 4.3.1, PDF page 42.
 
 ### Branch Testing and Coverage
 
@@ -1053,7 +1214,11 @@ Một test với <code>customer_is_premium = true</code> execute mọi statement
 
 ### Value and Limitation
 
-White-box testing đo implementation coverage bằng objective metric và có thể tìm defect khi specifications chưa đầy đủ. Nó khó tìm requirement bị bỏ khỏi cả specification lẫn implementation. Coverage là bằng chứng code đã được execute, không phải bằng chứng correctness.
+White-box testing đo implementation coverage bằng objective metric và có thể tìm defect khi specifications chưa đầy đủ. Nó cũng có thể được dùng theo cách static, chẳng hạn dry-run code, pseudocode hoặc control-flow model trước khi có executable software.
+
+White-box coverage cho biết black-box tests đã exercise bao nhiêu code và giúp định hướng additional tests. Tuy nhiên, nó không đáng tin cậy để tìm requirement bị bỏ khỏi cả specification lẫn implementation. Coverage là bằng chứng code đã được execute, không phải bằng chứng correctness.
+
+CTFL v4.0.1, section 4.3.3, PDF page 43.
 
 > **Mẹo nhớ:** Statement hỏi “Dòng lệnh đã chạy chưa?”. Branch hỏi “Mỗi hướng rẽ đã đi chưa?”.
 
@@ -1064,6 +1229,10 @@ CTFL v4.0.1, section 4.3, PDF page 43.
 ### Error Guessing
 
 Tester dự đoán error, defect và failure có thể xảy ra bằng knowledge về application behavior trước đây, developer tendencies, similar systems và defect data. Targets thường liên quan inputs, outputs, logic, calculation, interfaces và data.
+
+Đừng nhầm các test targets này với **root cause** rộng ở organizational level, chẳng hạn thiếu training. Error guessing nhắm tới hậu quả trong software mà một test có thể làm lộ.
+
+CTFL v4.0.1, section 4.4.1, PDF pages 43-44.
 
 **Fault attack** dùng danh sách plausible faults như empty values, duplicated submission, expired tokens, interrupted network, rounding, time zones và concurrent update rồi thiết kế test để làm lộ chúng. Team nên cập nhật danh sách từ findings thực tế.
 
@@ -1158,109 +1327,191 @@ CTFL v4.0.1, section 4.5, PDF pages 45-46.
 
 ### Q1 - EP Derivation
 
-Password length phải từ 8 đến 20 characters inclusive. Giả sử length là non-negative integer. Xác định partitions và minimum EP set.
+Password length phải từ 8 đến 20 characters, bao gồm hai endpoints. Giả sử length là non-negative integer và không xét input type khác. Partitions và test set nào đạt 100% equivalence partition coverage?
+
+A. Invalid <code>0–7</code>, valid <code>8–20</code>, invalid <code>21+</code>; test <code>5, 12, 25</code>  
+B. Valid <code>0–7</code>, invalid <code>8–20</code>, valid <code>21+</code>; test <code>7, 8, 20</code>  
+C. Invalid <code>0–8</code>, valid <code>9–19</code>, invalid <code>20+</code>; test <code>8, 12, 20</code>  
+D. Một valid partition <code>8–20</code>; test <code>8, 12, 20</code>
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Invalid <code>0-7</code>, valid <code>8-20</code>, invalid <code>21+</code>. Representatives như <code>5, 12, 25</code> đạt 100% EP coverage. Nếu input technology cho phép null/non-string values và specification xử lý chúng khác, chúng tạo partitions bổ sung; đừng tự thêm nếu không nằm trong scope.
+**A.** Rule tạo một valid partition và hai invalid partitions. Một representative từ mỗi partition, như <code>5, 12, 25</code>, đạt 100% equivalence partition coverage trong scope đã nêu.
+
+CTFL v4.0.1, section 4.2.1, PDF pages 39-40.
 
 </details>
 
 ### Q2 - 2-Value and 3-Value BVA
 
-Với cùng rule 8-20, derive unique values.
+Với cùng rule password length 8–20 inclusive, các unique-value sets nào áp dụng đúng 2-value và 3-value BVA?
+
+A. 2-value: <code>8, 20</code>; 3-value: <code>7, 8, 20, 21</code>  
+B. 2-value: <code>7, 8, 20, 21</code>; 3-value: <code>7, 8, 9, 19, 20, 21</code>  
+C. 2-value: <code>7, 9, 19, 21</code>; 3-value: <code>6, 8, 10, 18, 20, 22</code>  
+D. 2-value: <code>8, 9, 19, 20</code>; 3-value: <code>7, 9, 12, 19, 21</code>
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-2-value BVA: <code>7, 8, 20, 21</code>.  
-3-value BVA: <code>7, 8, 9, 19, 20, 21</code>.
+**B.** 2-value BVA dùng mỗi boundary và closest neighbor thuộc adjacent partition. 3-value BVA còn thêm neighbor của mỗi boundary ở phía trong cùng partition.
+
+CTFL v4.0.1, section 4.2.2, PDF page 40.
 
 </details>
 
 ### Q3 - BVA Coverage
 
-Với valid quantity 1-100, một 3-value suite chạy <code>0, 1, 2, 99, 100</code> nhưng không chạy <code>101</code>. Coverage bằng bao nhiêu?
+Với valid quantity 1–100, một 3-value suite chạy <code>0, 1, 2, 99, 100</code> nhưng không chạy <code>101</code>. Coverage là bao nhiêu?
+
+A. 50,0%  
+B. 80,0%  
+C. 83,3%  
+D. 100,0%
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Sáu items là <code>0,1,2,99,100,101</code>; năm items đã được exercise. Coverage là <code>5/6 = 83,3%</code>.
+**C.** Sáu 3-value boundary coverage items là <code>0, 1, 2, 99, 100, 101</code>. Năm item được exercise, nên coverage là <code>5/6 = 83,3%</code>.
+
+CTFL v4.0.1, section 4.2.2, PDF page 40.
 
 </details>
 
 ### Q4 - Decision Table
 
-Refund được auto-approved nếu purchase trong 30 ngày **và** item chưa mở. Trường hợp khác cần manual review. Tạo full limited-entry table và minimum tests.
+Refund được auto-approved nếu purchase trong 30 ngày **và** item chưa mở. Mọi trường hợp khác cần manual review. Phát biểu nào mô tả đúng full limited-entry decision table và số tests cần cho 100% rule coverage?
+
+A. Có hai feasible rules; một auto-approval test và một manual-review test luôn đủ.  
+B. Có ba feasible rules; cả hai conditions đều irrelevant bất cứ khi nào manual review xảy ra.  
+C. Có bốn feasible rules: <code>TT</code>, <code>TF</code>, <code>FT</code>, <code>FF</code>; chỉ <code>TT</code> auto-approve; cần một test cho mỗi rule, tổng cộng bốn tests.  
+D. Có tám feasible rules vì mỗi action phải độc lập nhận cả true và false.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-| Conditions/actions | R1 | R2 | R3 | R4 |
-|---|:---:|:---:|:---:|:---:|
-| Within 30 days? | T | T | F | F |
-| Unopened? | T | F | T | F |
-| Auto-approve | X |  |  |  |
-| Manual review |  | X | X | X |
+**C.** Hai Boolean conditions tạo bốn combinations trong full limited-entry table. Chỉ rule <code>within 30 days = true</code> và <code>unopened = true</code> tạo auto-approval; ba rules còn lại cần manual review. Một test cho mỗi feasible rule đạt 100% rule coverage.
 
-Một test cho mỗi column đạt 100% rule coverage. Ba manual-review columns chỉ có thể được minimize khi business rule cho phép biểu diễn condition không ảnh hưởng outcome.
+CTFL v4.0.1, section 4.2.3, PDF page 41.
 
 </details>
 
 ### Q5 - State Coverage
 
-Turnstile có <code>Locked</code> và <code>Unlocked</code>. <code>coin</code> chuyển Locked→Unlocked; <code>push</code> chuyển Unlocked→Locked. <code>push</code> trong Locked và <code>coin</code> trong Unlocked là invalid. Sequence <code>coin, push</code> từ Locked cover gì?
+Turnstile có hai states: <code>Locked</code> và <code>Unlocked</code>. <code>coin</code> chuyển Locked→Unlocked; <code>push</code> chuyển Unlocked→Locked. <code>push</code> khi Locked và <code>coin</code> khi Unlocked là invalid. Từ Locked, sequence <code>coin, push</code> cover gì?
+
+A. 50% state coverage và 50% valid-transition coverage  
+B. 100% state coverage, 100% valid-transition coverage và 0% invalid-transition coverage  
+C. 100% coverage của cả valid và invalid transitions  
+D. 0% state coverage vì sequence quay lại starting state
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Sequence cover cả hai states và cả hai valid transitions: 100% all-states và 100% valid-transitions coverage. State table có tổng cộng bốn transitions, gồm hai valid và hai invalid. Sequence cover 2/4, nên đạt **50% all-transitions coverage**. Thêm test riêng cho <code>push</code> khi Locked và <code>coin</code> khi Unlocked.
+**B.** Sequence visit cả hai states và exercise cả hai valid transitions. Nó không attempt invalid transition nào, nên không có invalid-transition coverage và chưa đạt 100% all-transitions coverage.
+
+CTFL v4.0.1, section 4.2.4, PDF pages 41-42.
 
 </details>
 
 ### Q6 - Statement versus Branch
 
-Với premium-discount code ở trên, một true test đạt coverage gì?
+Với premium-discount code ở phần trên, một test có condition = true đạt coverage nào?
+
+A. 100% statement coverage nhưng chưa đạt 100% branch coverage  
+B. 100% branch coverage nhưng chưa đạt 100% statement coverage  
+C. 100% statement và branch coverage  
+D. Không đạt statement coverage lẫn branch coverage
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-100% statement coverage nhưng chưa đạt 100% branch coverage. Thêm false test để cover đủ decision outcomes. Branch coverage subsumes statement coverage.
+**A.** True test execute mọi statement nhưng chỉ exercise true outcome của decision. Cần thêm false test để đạt 100% branch coverage. Branch coverage bao hàm statement coverage, không phải ngược lại.
+
+CTFL v4.0.1, sections 4.3.1-4.3.3, PDF pages 42-43.
 
 </details>
 
 ### Q7 - Choose a Technique
 
-Requirements có combinations của membership, order value và voucher validity tạo discounts khác nhau. Technique nào nên dẫn đầu, technique nào bổ sung?
+Requirements có combinations của membership, order value và voucher validity tạo ra các discounts khác nhau. Technique nào nên dẫn đầu, và technique nào có thể bổ sung?
+
+A. Dẫn đầu bằng statement testing; chỉ dùng branch testing cho visual design.  
+B. Dẫn đầu bằng decision table testing; bổ sung EP/BVA cho value ranges và exploratory testing hoặc error guessing cho interactions chưa được model.  
+C. Dẫn đầu bằng state transition testing vì mọi business rule đều là state.  
+D. Dẫn đầu bằng checklist-based testing và loại bỏ mọi black-box techniques.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Dùng **decision table testing** làm technique chính vì condition combinations quyết định actions. Dùng EP/BVA cho order-value ranges và exploratory/error guessing cho interactions chưa lường trước.
+**B.** Decision tables phù hợp với combinations of conditions tạo ra actions khác nhau. EP và BVA cover order-value ranges; experience-based techniques có thể khám phá interactions không được model rõ.
+
+CTFL v4.0.1, sections 4.2.1-4.2.3 and 4.4.2, PDF pages 39-41 and 44.
 
 </details>
 
 ### Q8 - ATDD Derivation
 
-Story: “As a registered customer, I can retry sign-in, but my account locks after three consecutive failures.” Viết các acceptance tests thiết yếu.
+Story: “Là registered customer, tôi có thể retry sign-in, nhưng account bị lock sau ba consecutive failures.” Acceptance-test set nào cover essential behavior tốt nhất?
+
+A. Chỉ test successful sign-in và một failed sign-in vì cả hai input classes đã có representative.  
+B. Test ba invalid passwords riêng biệt, mỗi test bắt đầu từ account mới, và chỉ verify error text.  
+C. Test success khi có zero failures; một và hai consecutive failures vẫn active; failure thứ ba lock account; success reset partial failure count; request bị reject khi locked; authorized reset unlock account.  
+D. Test database performance dưới load mà không kiểm tra account state transitions.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Tối thiểu gồm: successful sign-in từ zero failures; một và hai failures vẫn active; failure thứ ba liên tiếp gây lock; success sau một hoặc hai failures reset count; sign-in khi locked bị reject; authorized reset mở lock. Đây là state-transition sequences, không phải isolated input tests. Thêm expected messages/security behavior nếu acceptance criteria có định nghĩa.
+**C.** Rule phụ thuộc sequence và state changes, nên acceptance tests phải cover failure count, reset sau success, lock transition, behavior khi locked và authorized recovery.
+
+CTFL v4.0.1, sections 4.2.4 and 4.5.3, PDF pages 41-42 and 46.
 
 </details>
 
 ### Q9 - Test-Design Diagnosis
 
-Tester chọn 15, 16 và 17 cho valid range 1-100 rồi nói coverage mạnh vì dùng ba values. Sai ở đâu?
+Tester chọn 15, 16 và 17 cho valid range 1–100 rồi tuyên bố coverage mạnh vì đã dùng ba values. Sai ở đâu?
+
+A. Không sai; ba values khác nhau luôn bảo đảm full EP và boundary coverage.  
+B. Cả ba values thuộc cùng một valid equivalence partition và không value nào nhắm boundary.  
+C. Các values đều invalid vì chỉ 1 và 100 được phép.  
+D. Vấn đề duy nhất là values được execute theo thứ tự tăng dần.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Cả ba values nằm trong cùng một valid equivalence partition và không value nào nhắm boundary. Nhiều test cases không đồng nghĩa nhiều coverage. Dùng representatives từ mọi partitions và boundary-focused values theo coverage criterion đã chọn.
+**B.** Số lượng test values không tự quyết định coverage. Ba values chỉ exercise một valid partition và không nhắm boundary nào. Cần representatives từ mọi relevant partition và boundary values theo criteria đã chọn.
+
+CTFL v4.0.1, sections 4.2.1 and 4.2.2, PDF pages 39-40.
 
 </details>
 
 ### Q10 - Exploratory Charter
 
-Viết focused charter cho payment session 45 phút.
+Đâu là charter tập trung tốt nhất cho exploratory payment session kéo dài 45 phút?
+
+A. “Test payments thật kỹ cho đến khi tìm được mọi defect có thể có.”  
+B. “Dành 45 phút xác nhận happy path chạy một lần trên một browser.”  
+C. “Khám phá bất kỳ điều gì thú vị trong application và báo xem nó có vẻ tốt không.”  
+D. “Trong 45 phút, khám phá khả năng card payment phục hồi sau duplicate submission, network interruption, timeout và browser refresh bằng state modeling và error guessing; kiểm tra rằng nhiều nhất chỉ tạo một charge và một order.”
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Ví dụ: “Explore card payment recovery cho duplicate submission, network interruption, timeout và browser refresh bằng state modeling cùng error guessing trong 45 phút; ghi nhận system có tạo tối đa một charge/order hay không.” Charter nêu scope, risks, techniques, time box và observable mission.
+**D.** Charter hữu ích xác định focused scope, objective hoặc risk, relevant techniques, time box và observable mission, nhưng vẫn cho tester tự do thích nghi trong execution.
+
+CTFL v4.0.1, section 4.4.2, PDF page 44.
 
 </details>
 
@@ -1374,6 +1625,8 @@ Báo cáo <code>E ± SD</code> thay vì false precision.
 - <code>SD = (18-6)/6 = 2</code> giờ.
 - Báo cáo **10 ± 2 person-hours**, xấp xỉ 8-12.
 
+Luôn giữ rõ unit và scope. Nếu <code>E</code> estimate cho một test case nhưng có bốn comparable cases phải execute, hãy tính estimate cho mỗi case trước rồi nhân bốn. Đừng nhầm per-case estimate với total estimate.
+
 > **Mẹo nhớ:** Ratio nhìn project cũ. Extrapolation nhìn dữ liệu project hiện tại. Delphi hỏi nhiều experts. Three-point dùng a, m, b.
 
 CTFL v4.0.1, section 5.1.4, PDF pages 49-50.
@@ -1446,6 +1699,10 @@ CTFL v4.0.1, section 5.1.7, PDF page 51.
 - **Risk level:** measure kết hợp likelihood và impact. Quantitative approach có thể dùng <code>likelihood × impact</code>; qualitative approach có thể dùng risk matrix.
 
 Risk level cao cần treatment mạnh hơn.
+
+Trong câu hỏi định lượng, có thể biến đổi cùng một quan hệ: <code>impact = risk level / likelihood</code> và <code>likelihood = risk level / impact</code>. Khi tính toán với percentage, giữ ở dạng decimal; ví dụ 50% là <code>0,5</code>.
+
+CTFL v4.0.1, section 5.2.1, PDF page 52.
 
 ### Project Risks versus Product Risks
 
@@ -1539,6 +1796,12 @@ Communication có thể là verbal, dashboard, email/chat, online documentation 
 
 Executive cần risk, trend và decision information; developer cần actionable technical detail; auditor cần evidence và traceability.
 
+Test report tóm tắt testing; nó không thay thế individual defect reports. Detailed reproduction steps, data, logs và defect-specific evidence phải nằm trong defect record, và report có thể reference record đó.
+
+Chọn communication channel dựa trên urgency, audience, formality, geographical distance và time-zone constraints. Face-to-face communication không tự động là lựa chọn tốt nhất cho distributed audience.
+
+CTFL v4.0.1, sections 5.3.2-5.3.3, PDF page 55.
+
 > **Mẹo nhớ:** Progress report giúp điều khiển công việc đang chạy. Completion report tổng kết phần đã xong.
 
 CTFL v4.0.1, sections 5.3.2-5.3.3, PDF pages 54-56.
@@ -1610,101 +1873,191 @@ CTFL v4.0.1, section 5.5, PDF pages 56-57.
 
 ### Q1 - Ratio Estimate
 
-Historical development:test effort là 5:2. New development effort là 750 person-days. Estimate test effort.
+Historical development:test effort là 5:2. Development effort mới là 750 person-days. Estimate test effort.
+
+A. 150 person-days  
+B. 300 person-days  
+C. 750 person-days  
+D. 1.875 person-days
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-<code>750 × 2/5 = 300 person-days</code>, với assumption new project tương đồng và ratio gồm cùng loại work.
+**B.** Dùng historical ratio: <code>750 × 2/5 = 300 person-days</code>, với assumption rằng project mới comparable và ratio cover cùng loại work.
+
+CTFL v4.0.1, section 5.1.4, PDF pages 49-50.
 
 </details>
 
 ### Q2 - Extrapolation
 
-Test effort của ba similar iterations gần nhất là 32, 40 và 36 person-days. Dùng simple average để estimate iteration sau.
+Test effort trong ba similar iterations gần nhất là 32, 40 và 36 person-days. Dùng simple average, estimate iteration tiếp theo.
+
+A. 32 person-days  
+B. 36 person-days  
+C. 40 person-days  
+D. 108 person-days
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-<code>(32+40+36)/3 = 36 person-days</code>. Nêu rõ model và reassess nếu scope, team hoặc context đổi.
+**B.** Simple average là <code>(32 + 40 + 36) / 3 = 36 person-days</code>. Cần xem lại estimate nếu scope, team hoặc context không comparable.
+
+CTFL v4.0.1, section 5.1.4, PDF pages 49-50.
 
 </details>
 
 ### Q3 - Three-Point Estimate
 
-Cho <code>a=8</code>, <code>m=14</code>, <code>b=26</code> giờ. Tính E và SD.
+Với <code>a=8</code>, <code>m=14</code>, <code>b=26</code> hours, hãy tính E và SD.
+
+A. <code>E = 14</code>, <code>SD = 6</code> hours  
+B. <code>E = 15</code>, <code>SD = 3</code> hours  
+C. <code>E = 16</code>, <code>SD = 9</code> hours  
+D. <code>E = 48</code>, <code>SD = 18</code> hours
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-<code>E=(8+4×14+26)/6=90/6=15</code>; <code>SD=(26-8)/6=3</code>. Báo cáo **15 ± 3 giờ**, xấp xỉ 12-18.
+**B.** <code>E = (a + 4m + b) / 6 = (8 + 4×14 + 26) / 6 = 15</code> hours; <code>SD = (b − a) / 6 = (26 − 8) / 6 = 3</code> hours.
+
+CTFL v4.0.1, section 5.1.4, PDF pages 49-50.
 
 </details>
 
 ### Q4 - Wideband Delphi
 
-Một senior engineer nói “5 ngày” trước khi người khác estimate; group nhanh chóng đồng ý. Process property nào đã mất?
+Một senior engineer nói “5 days” trước khi bất kỳ ai khác lên tiếng; group nhanh chóng đồng ý. Process property nào đã mất?
+
+A. Initial independent estimation, giúp giảm anchoring và dominance  
+B. Yêu cầu chỉ được dùng historical ratio-based estimation  
+C. Rule bắt buộc test manager estimate một mình  
+D. Yêu cầu phải execute tests trước khi estimating
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Initial **independent estimation**, vốn giúp giảm anchoring và dominance. Thu private estimates trước, thảo luận assumptions/outliers rồi re-estimate độc lập.
+**A.** Wideband Delphi bắt đầu bằng independent estimates trước discussion. Điều này giảm anchoring bởi người có ảnh hưởng; sau đó group thảo luận assumptions và re-estimate độc lập.
+
+CTFL v4.0.1, section 5.1.4, PDF pages 49-50.
 
 </details>
 
 ### Q5 - Prioritization with Dependency
 
-T1 có low priority nhưng tạo data cần cho high-priority T2. T3 có high priority và independent. Order nào hợp lý?
+T1 có low priority nhưng tạo data mà high-priority T2 cần. T3 có high priority và independent. Thứ tự nào vừa chạy independent high-priority test trước, vừa thỏa dependency?
+
+A. T2, T3, T1  
+B. T1, T2, T3  
+C. T3, T1, T2  
+D. T3, T2, T1
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Chạy **T3** sớm vì high priority và independent; chạy **T1 trước T2** vì dependency override nominal priority của T2. T3, T1, T2 là order hợp lý tùy resources.
+**C.** T3 có thể chạy sớm vì high priority và independent. T1 phải đứng trước T2 vì dependency quan trọng hơn nominal priority của T2. Thứ tự hợp lý là <code>T3, T1, T2</code>.
+
+CTFL v4.0.1, section 5.1.5, PDF page 50.
 
 </details>
 
 ### Q6 - Additional Coverage
 
-T1 cover A,B,C; T2 cover B,C,D; T3 cover D,E; T4 cover A,E,F. Nếu T1 chạy trước, test nào maximize additional coverage ở bước sau?
+T1 covers A,B,C; T2 covers B,C,D; T3 covers D,E; T4 covers A,E,F. Nếu T1 chạy trước, test nào maximize additional coverage tiếp theo?
+
+A. Chỉ T2 vì nó share nhiều items nhất với T1  
+B. T3 hoặc T4 vì mỗi test thêm hai previously uncovered items  
+C. Chỉ T4 vì alphabetical order luôn phá mọi prioritization tie  
+D. Không test nào vì T1 đã đạt 100% coverage
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-T3 và T4 đều thêm hai items; test nào cũng có thể chạy thứ hai. Nếu chọn T4, T2 và T3 đều chỉ thêm D nên hòa. Dùng risk, cost, priority hoặc dependency để break tie.
+**B.** Sau T1, A, B và C đã cover. T3 thêm D và E; T4 thêm E và F. Mỗi test thêm hai coverage items mới, nên test nào cũng có thể được chọn. Risk, cost, priority hoặc dependencies có thể phá tie.
+
+CTFL v4.0.1, section 5.1.5, PDF page 50.
 
 </details>
 
 ### Q7 - Product or Project Risk
 
-Phân loại: (a) performance tester duy nhất nghỉ việc; (b) checkout làm lộ card data; (c) test environment đến trễ.
+Lựa chọn nào phân loại đúng: (a) performance tester duy nhất nghỉ việc; (b) checkout làm lộ card data; (c) test environment đến trễ?
+
+A. (a) Product; (b) project; (c) product  
+B. (a) Project; (b) product; (c) project  
+C. (a) Product; (b) product; (c) project  
+D. (a) Project; (b) project; (c) product
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-(a) project risk; (b) product risk; (c) project risk. Consequences có thể tương tác, nhưng hãy classify chính risk event.
+**B.** Mất staff và environment đến trễ đe dọa project execution, nên là project risks. Card data bị lộ là quality problem trong product, nên là product risk.
+
+CTFL v4.0.1, sections 5.2.1 and 5.2.2, PDF page 52.
 
 </details>
 
 ### Q8 - Risk-Based Response
 
-Payment-duplication risk có high impact và medium likelihood. Nêu test response.
+Risk tạo duplicate payment có high impact và medium likelihood. Testing response nào phù hợp nhất?
+
+A. Hoãn cho đến khi mọi low-risk cosmetic tests pass vì likelihood không high.  
+B. Chạy một happy-path test rồi đóng risk nếu test pass.  
+C. Prioritize sớm; giao skilled testers; dùng strong review cùng state/concurrency/interruption coverage trong realistic integration environment; automate regression khi hữu ích; monitor residual risk.  
+D. Transfer risk cho users và bỏ testing vì risk acceptance là business decision.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Prioritize sớm; giao skilled testers; dùng independent review, state-transition và concurrency/interruption tests, strong coverage, production-like integration và automated regression; monitor residual risk. Acceptance, transfer hoặc contingency là business options cần được chọn có chủ đích.
+**C.** Product risk analysis ảnh hưởng test scope, levels, techniques, coverage, effort, priority và expertise. Payment risk có high impact cần early, thorough testing và monitoring residual risk.
+
+CTFL v4.0.1, section 5.2.4, PDF page 53.
 
 </details>
 
 ### Q9 - Progress or Completion Report?
 
-Weekly document liệt kê execution status, blockers, changed risks và plan tuần sau. Đây là report nào?
+Weekly document liệt kê execution status, blockers, changed risks và plan cho tuần sau. Đây là report nào?
+
+A. Test progress report  
+B. Test completion report  
+C. Defect report  
+D. Test charter
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-**Test progress report**. Completion report tóm tắt completed scope theo objectives và exit criteria, gồm unresolved risks/defects và lessons learned.
+**A.** Test progress report hỗ trợ ongoing control bằng cách mô tả current status, impediments, risks và planned work. Completion report tóm tắt testing đã hoàn thành so với objectives và exit criteria.
+
+CTFL v4.0.1, section 5.3.2, PDF pages 54-55.
 
 </details>
 
 ### Q10 - Evaluate a Defect Report
 
-Report: “App crashed. High priority. Please fix.” Information quan trọng nào còn thiếu?
+Report viết: “App crashed. High priority. Please fix.” Lựa chọn nào xác định đúng nhất thông tin cần thêm để report hữu ích?
+
+A. Chỉ preferred solution của tester và tên developer  
+B. Exact build và environment; preconditions và data; reproducible steps; expected và actual results; evidence; rationale cho severity và priority; reporter/date; references  
+C. Chỉ priority cao hơn và title ngắn hơn  
+D. Toàn bộ application source code nhưng không có reproduction steps
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Exact build/object và environment, preconditions/data, reproducible steps, expected và actual results, evidence/logs, impact-based severity, rationale cho priority, reporter/date và references. Thiếu các mục này làm resolution và confirmation khó tin cậy.
+**B.** Defect report hữu ích cung cấp đủ context và evidence để reproduce, analyze, resolve và confirm defect, đồng thời phân biệt impact-based severity với business-oriented priority.
+
+CTFL v4.0.1, section 5.5, PDF pages 56-57.
 
 </details>
 
@@ -1787,49 +2140,94 @@ CTFL v4.0.1, section 6.2, PDF pages 59-60.
 
 Tool tạo 5.000 virtual users và ghi latency percentiles. Đây là category nào?
 
+A. Non-functional testing tool hỗ trợ performance testing  
+B. Static analysis tool chỉ hỗ trợ code review  
+C. Test management tool chỉ hỗ trợ estimation  
+D. Collaboration tool chỉ hỗ trợ viết acceptance criteria
+
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
-**Non-functional testing tool**, cụ thể hỗ trợ performance testing. Tool cũng có thể integrate với execution/reporting tools.
+**A.** Simulate nhiều users và đo latency hỗ trợ dynamic, non-functional performance testing, dù tool cũng có thể integrate với execution hoặc reporting systems.
+
+CTFL v4.0.1, section 6.1, PDF page 59.
 
 </details>
 
 ### Q2 - Benefit or Risk?
 
-Suite chạy consistent qua đêm và giải phóng tester cho exploratory work, nhưng UI changes yêu cầu sửa scripts thường xuyên.
+Suite chạy nhất quán qua đêm và giải phóng tester cho exploratory work, nhưng UI changes buộc team sửa scripts thường xuyên. Đánh giá nào đúng?
+
+A. Consistency và freed tester time là risks; script repair là benefit.  
+B. Cả ba outcomes đều là guaranteed benefits của automation.  
+C. Consistent repeated execution và freed tester time là benefits; recurring script maintenance là risk hoặc cost.  
+D. Không outcome nào liên quan test automation.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Consistent repeated execution và thêm thời gian cho tester là benefits; underestimated maintenance cost là risk.
+**C.** Automation có thể tạo repeatability và tiết kiệm manual effort. Maintenance effort, nhất là với unstable interfaces, là risk đã biết và phải được tính trong adoption decision.
+
+CTFL v4.0.1, section 6.2, PDF pages 59-60.
 
 </details>
 
 ### Q3 - Tool Decision
 
-Team muốn automate evaluation cho visual prototype chỉ dùng một lần và đang thay đổi nhanh. Cần cân nhắc gì?
+Team muốn automate việc đánh giá visual prototype chỉ dùng một lần và đang thay đổi nhanh. Team nên cân nhắc gì?
+
+A. Automate toàn bộ vì mọi test activity đều hưởng lợi như nhau từ automation.  
+B. Ưu tiên manual exploratory/usability testing nếu nó có value tốt hơn sau khi so automation build và maintenance cost với expected repetition và decision value.  
+C. Hủy mọi testing vì product thay đổi nhanh không thể được đánh giá.  
+D. Chọn tool chỉ vì có nhiều features nhất, không xét objectives hoặc compatibility.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Manual exploratory/usability testing có thể phù hợp hơn. So sánh automation build/maintenance cost với số lần lặp và decision value thay vì mặc định automation tốt hơn.
+**B.** Tool support phải được chọn theo activity và context. Với one-time, rapidly changing visual prototype, automation cost có thể lớn hơn benefit; human exploratory và usability assessment có thể tạo value cao hơn.
+
+CTFL v4.0.1, sections 6.1 and 6.2, PDF pages 59-60.
 
 </details>
 
 ### Q4 - Overreliance
 
-Coverage report 100%, nhưng users vẫn không hoàn tất checkout. Giải thích.
+Coverage report là 100%, nhưng users vẫn không hoàn tất checkout. Giải thích nào đúng?
+
+A. 100% coverage bảo đảm defect-free software, nên users chắc chắn nhầm.  
+B. Coverage chứng minh selected items đã được exercise, không chứng minh behavior đúng hoặc hữu ích; missing requirements, weak oracles và usability problems vẫn có thể còn.  
+C. Bất kỳ coverage metric nào trên 80% đều loại bỏ nhu cầu validation.  
+D. Khả năng duy nhất là coverage tool tính sai percentage.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Coverage cho biết selected structural hoặc requirement items đã được exercise, không chứng minh behavior đúng hoặc hữu ích. Missing/incorrect requirements, weak assertions, usability issues và test oracle defects vẫn có thể tồn tại. Cần human validation và complementary techniques.
+**B.** Coverage result mô tả coverage items và criterion đã được exercise. Nó không chứng minh correctness, suitability hoặc absence of defects. Vẫn cần complementary techniques và human validation.
+
+CTFL v4.0.1, sections 1.3 and 6.2, PDF pages 18 and 59-60.
 
 </details>
 
 ### Q5 - Safe Adoption
 
-Liệt kê bốn controls trước khi áp dụng test execution tool mới.
+Gói controls nào mạnh nhất trước khi áp dụng test-execution tool mới?
+
+A. Mua tool có feature list dài nhất, automate mọi thứ ngay và chỉ đo số scripts.  
+B. Để một tester nhiệt tình deploy mà không có pilot, training, maintenance owner hoặc success criteria.  
+C. Thay toàn bộ manual testing ngay khi automated test đầu tiên pass.  
+D. Xác định objectives; đánh giá technical và regulatory fit; pilot representative tests; estimate introduction và maintenance effort; train users; gán ownership; monitor outcomes.
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
-Validate objectives; assess platform/regulatory fit; pilot representative tests; estimate introduction và maintenance effort; training users; define ownership/support; measure outcomes; giữ manual judgment. Bốn controls có giải thích đều được chấp nhận.
+**D.** Successful tool introduction phụ thuộc realistic objectives và expectations, suitable pilot, organizational và technical fit, training, ownership, maintenance planning và việc đo benefits lẫn risks.
+
+CTFL v4.0.1, section 6.2, PDF pages 59-60.
 
 </details>
 
@@ -1936,6 +2334,8 @@ B. Valid: 51–999; invalid: 50 và 1.000
 C. Valid: chỉ trên 50; invalid: dưới 50  
 D. Một valid partition chứa mọi numeric value
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **A.** Cụm “từ 50 đến 1.000, bao gồm cả hai endpoints” tạo một valid partition là 50–1.000. Hai invalid partitions là nhỏ hơn 50 và lớn hơn 1.000.
@@ -1955,13 +2355,15 @@ B. 49, 50, 1.000, 1.001
 C. 49, 50, 51, 999, 1.000, 1.001  
 D. 0, 500, 2.000
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **B.** Với mỗi boundary, 2-value BVA dùng boundary value và closest neighbor thuộc adjacent partition. Vì vậy cần 49/50 ở lower boundary và 1.000/1.001 ở upper boundary.
 
 C là test set của 3-value BVA vì có boundary và cả hai neighbors. A không kiểm tra phía invalid sát boundary. D không tập trung vào boundary values.
 
-CTFL v4.0.1, section 4.2.2, PDF pages 40-41.
+CTFL v4.0.1, section 4.2.2, PDF page 40.
 
 </details>
 
@@ -1973,6 +2375,8 @@ A. Registered status và adult status
 B. Chỉ code statement count  
 C. Chỉ tester seniority  
 D. Chỉ browser color theme
+
+Chọn **MỘT** đáp án.
 
 <details><summary>Đáp án</summary>
 
@@ -1993,6 +2397,8 @@ B. 50 USD, 51 USD, 999 USD
 C. mở requirements document  
 D. chạy cùng một successful request một lần
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **A.** Sequence này kiểm tra hai behavior quan trọng: success trước timeout thứ ba phải reset counter; sau đó ba timeouts liên tiếp phải đưa request vào <code>ManualReview</code>.
@@ -2012,13 +2418,15 @@ B. System integration testing
 C. Chỉ user acceptance testing  
 D. Chỉ static testing
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **B.** Test objective là interface và interaction giữa system under test với external service, nên test level phù hợp nhất là system integration testing.
 
 Static review và các test levels khác vẫn có thể bổ sung giá trị, nhưng chúng không thay đổi focus chính của câu hỏi.
 
-CTFL v4.0.1, section 2.2.1, PDF pages 28-30.
+CTFL v4.0.1, section 2.2.1, PDF page 29.
 
 </details>
 
@@ -2031,13 +2439,15 @@ B. 8
 C. 15  
 D. 35
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **C.** Theo cách tính định lượng đơn giản: <code>risk level = likelihood × impact = 3 × 5 = 15</code>.
 
 Con số 15 giúp so sánh và ưu tiên risk, nhưng cách xử lý vẫn cần judgment và thresholds đã được các bên thống nhất.
 
-CTFL v4.0.1, section 5.2.1, PDF page 51.
+CTFL v4.0.1, section 5.2.1, PDF page 52.
 
 </details>
 
@@ -2050,13 +2460,15 @@ B. Confirmation testing
 C. Chỉ regression testing  
 D. Chỉ QA
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **B. Confirmation testing** trực tiếp kiểm tra defect cụ thể đã được sửa thành công hay chưa.
 
 Các tests khác cho payment, order và retry sẽ phục vụ regression testing. Debugging là hoạt động tìm và loại bỏ nguyên nhân defect, thường do developer thực hiện. QA không phải tên của lần chạy lại này.
 
-CTFL v4.0.1, section 2.2.3, PDF page 33.
+CTFL v4.0.1, section 2.2.3, PDF page 30.
 
 </details>
 
@@ -2069,13 +2481,15 @@ B. Business, developers và testers cùng review eligibility criteria và timeou
 C. Chạy transactions trên production  
 D. Xóa acceptance criteria
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **B.** Review sớm có thể phát hiện ambiguity, omission và business-rule contradiction trước khi code được viết, nhờ đó feedback đến sớm và chi phí sửa thường thấp hơn.
 
 A trì hoãn feedback. C là dynamic production activity với risk không cần thiết. D làm mất test basis.
 
-CTFL v4.0.1, sections 3.1.2 and 3.2.1, PDF pages 35-37.
+CTFL v4.0.1, section 3.1.2, PDF page 33.
 
 </details>
 
@@ -2088,13 +2502,15 @@ B. Error happened
 C. Third consecutive credit timeout creates two BNPL agreements in build 5.2.0  
 D. Please fix urgently
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **C.** Title này nêu rõ trigger, observed failure và build. Người đọc có thể phân loại và điều tra nhanh hơn.
 
 Phần body vẫn phải có environment, steps, expected result, actual result, evidence, severity và priority. A, B và D quá mơ hồ.
 
-CTFL v4.0.1, section 5.5.1, PDF pages 56-57.
+CTFL v4.0.1, section 5.5, PDF pages 56-57.
 
 </details>
 
@@ -2107,13 +2523,15 @@ B. 22
 C. 24  
 D. 66
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **B.** Average là <code>(20 + 24 + 22) / 3 = 22</code> test days.
 
 Estimate này chỉ hợp lý khi work và team conditions của iteration mới thực sự comparable với dữ liệu lịch sử.
 
-CTFL v4.0.1, section 5.1.4, PDF pages 47-48.
+CTFL v4.0.1, section 5.1.4, PDF pages 49-50.
 
 </details>
 
@@ -2126,13 +2544,15 @@ B. Tool maintenance cần effort
 C. 100% automated execution chứng minh feature không có defect  
 D. Pipeline có thể chạy tests nhất quán
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **C.** Testing cho thấy sự hiện diện của defects, không chứng minh defects hoàn toàn không tồn tại. Automated execution và coverage cao cũng không bảo đảm requirements đầy đủ, assertions đúng hoặc mọi relevant condition đã được test.
 
 A và D là benefits có thể đạt được; B là một risk/cost thực tế cần tính đến.
 
-CTFL v4.0.1, sections 1.3.1 and 6.2, PDF pages 20 and 59-60.
+CTFL v4.0.1, sections 1.3 and 6.2, PDF pages 18 and 59-60.
 
 </details>
 
@@ -2145,13 +2565,15 @@ B. Test completion report
 C. Review checklist  
 D. Test data file
 
+Chọn **MỘT** đáp án.
+
 <details><summary>Đáp án</summary>
 
 **B. Test completion report** tóm tắt và đánh giá test scope đã hoàn thành, deviations, unresolved issues, residual risks và bài học.
 
 Test progress report phục vụ control khi testing còn diễn ra; các lựa chọn A, C và D có scope hẹp hơn.
 
-CTFL v4.0.1, section 5.3.2, PDF pages 53-54.
+CTFL v4.0.1, section 5.3.2, PDF page 55.
 
 </details>
 

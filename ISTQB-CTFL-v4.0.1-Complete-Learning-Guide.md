@@ -257,33 +257,68 @@ Independence can reveal different defects because the tester has different assum
 
 ### Q1 — classify the chain
 
-A pricing policy says VIP customers receive 15%, but the analyst writes 10%. The developer correctly implements 10%. A VIP customer then pays too much. Classify the likely error, defect, and failure.
+A pricing policy says VIP customers receive 15%, but an analyst writes 10% in the requirement. A developer correctly implements 10%, and a VIP customer pays too much. Which classification is correct?
 
-**Answer:** The analyst’s misunderstanding or incorrect writing is the **error**; “10%” in the requirement is the **defect**; overcharging the customer is the **failure**. A root cause might be missing policy review or unclear ownership. The developer’s implementation can conform to the defective requirement.
+A. The analyst’s action is an error, “10%” in the requirement is a defect, and overcharging is a failure.  
+B. The analyst’s action is a defect, “10%” in the requirement is a failure, and overcharging is an error.  
+C. The developer’s implementation is an error, the customer is a defect, and the policy is a failure.  
+D. The missing review is a failure, “10%” is a root cause, and overcharging is a defect.
+
+Select ONE option.
+
+**Answer: A.** A human action is an error, the resulting flaw in a work product is a defect, and incorrect behavior during use is a failure. A missing policy review could be a root cause. *(CTFL v4.0.1, section 1.2.3, PDF page 17.)*
 
 ### Q2 — choose the activity
 
-During testing, 58% of high-risk requirements are covered, against a planned 80%. The manager assigns an additional tester and postpones low-risk tests. Which activities are involved?
+During testing, 58% of high-risk requirements are covered against a planned 80%. The manager assigns an additional tester and postpones low-risk tests. Which activities are involved?
 
-**Answer:** Measuring 58% against 80% is **test monitoring**; assigning resources and reprioritizing are **test control**. The requirement-risk-test links depend on traceability.
+A. Measuring coverage is test analysis; changing resources is test design.  
+B. Measuring coverage is test execution; postponing tests is test completion.  
+C. Measuring coverage is test monitoring; assigning resources and reprioritizing are test control.  
+D. Both actions are test planning because the original plan is being changed.
+
+Select ONE option.
+
+**Answer: C.** Monitoring gathers information and compares actual progress with the plan; control takes corrective action to meet the test objectives. *(CTFL v4.0.1, section 1.4.1, PDF page 19.)*
 
 ### Q3 — identify the principle
 
 A team has run the same regression pack for ten releases. It still catches reintroduced defects but rarely finds new ones. What should the team conclude?
 
-**Answer:** **Tests wear out** for new-defect discovery, so add or refresh tests and data. Do not discard the stable regression pack: repeated tests can remain valuable for detecting regressions.
+A. Exhaustive testing has been achieved because no new defects are found.  
+B. Tests wear out, so tests and data should be refreshed while useful regression checks are retained.  
+C. Defects no longer cluster because the same tests continue to pass.  
+D. The absence-of-defects fallacy means the regression pack should be deleted.
+
+Select ONE option.
+
+**Answer: B.** Repeating unchanged tests tends to reveal fewer new defects, but stable tests can remain useful for detecting regressions. *(CTFL v4.0.1, section 1.3, PDF page 18.)*
 
 ### Q4 — select independence
 
 A safety-critical calculation requires objective evidence, but developers have unique algorithm expertise. What is a sound approach?
 
-**Answer:** Use **multiple levels of independence**: developers perform deep component tests while an independent team reviews assumptions and performs system-level testing. Maximum independence alone is not automatically best; it must be balanced with familiarity and communication.
+A. Let only the developers test because familiarity is always more valuable than independence.  
+B. Let only an external team test because maximum independence is always optimal.  
+C. Use developers for deep component testing and an independent team for assumption reviews and system-level testing.  
+D. Prevent communication between developers and independent testers to avoid shared bias.
+
+Select ONE option.
+
+**Answer: C.** Multiple levels of independence combine developer familiarity with different perspectives while avoiding unnecessary isolation. *(CTFL v4.0.1, section 1.5.3, PDF page 22.)*
 
 ### Q5 — verification or validation?
 
 ShopEZ implements “guest checkout disabled” exactly as specified. Usability research later shows that most target users abandon account creation. Which statement is best?
 
-**Answer:** Verification may have succeeded, but validation exposed that the product does not meet user/business needs. This illustrates the **absence-of-defects fallacy**.
+A. Verification failed because the implementation followed the specification.  
+B. Validation succeeded because no implementation defect was reported.  
+C. Verification may have succeeded, but validation failed; this illustrates the absence-of-defects fallacy.  
+D. Both verification and validation succeeded because the requirement was implemented exactly.
+
+Select ONE option.
+
+**Answer: C.** Conformance to a specification is verification; satisfying user and stakeholder needs in operation is validation. A correct implementation of the wrong requirement may still be unsuccessful. *(CTFL v4.0.1, sections 1.1 and 1.3, PDF pages 15 and 18.)*
 
 ### Chapter 1 quick check
 
@@ -432,33 +467,68 @@ Maintenance testing evaluates the changed behavior and regression risk in unchan
 
 ### Q1 — level or type?
 
-A team measures API response time between ShopEZ and a payment provider in a production-like environment. Identify the likely level and type.
+A team measures API response time between ShopEZ and a payment provider in a production-like environment. Which combination best classifies this test?
 
-**Answer:** **System integration testing** because the interface is between ShopEZ and an external service; **non-functional performance-efficiency testing** because response time is evaluated.
+A. Component testing and functional testing  
+B. System integration testing and non-functional performance-efficiency testing  
+C. System testing and maintainability testing  
+D. Acceptance testing and security testing
+
+Select ONE option.
+
+**Answer: B.** The test level is system integration testing because the focus is the interface between ShopEZ and an external service. The test type is non-functional testing because response time is a performance-efficiency characteristic. *(CTFL v4.0.1, sections 2.2.1 and 2.2.2, PDF pages 29–30.)*
 
 ### Q2 — test-first classification
 
-Before coding, a developer writes a failing unit test for `calculateTax()`, adds code until it passes, and then refactors. Which approach?
+Before coding, a developer writes a failing unit test for `calculateTax()`, adds code until it passes, and then refactors. Which test-first approach is specifically illustrated?
 
-**Answer:** **TDD**. If business, developer, and tester instead derived acceptance examples from a story’s criteria, it would be ATDD. Natural-language behavioral scenarios suggest BDD.
+A. Acceptance test-driven development (ATDD)  
+B. Behavior-driven development (BDD)  
+C. Test-driven development (TDD)  
+D. Risk-based testing
+
+Select ONE option.
+
+**Answer: C.** TDD uses a test-first cycle at the component level: write a test, write enough code to pass it, and then refactor. ATDD derives acceptance tests from acceptance criteria, while BDD commonly expresses desired behavior in natural language. *(CTFL v4.0.1, section 2.1.3, PDF pages 25–26.)*
 
 ### Q3 — choose confirmation and regression
 
-A fix changes the voucher calculation. Which tests are most directly confirmation, and which are regression?
+A fix changes the voucher calculation. Which option correctly distinguishes confirmation testing from regression testing?
 
-**Answer:** Rerunning the exact voucher test that failed is confirmation. Testing other voucher classes, totals, tax, refunds, and invoices for side effects is regression. One test can sometimes serve both purposes, but the objectives remain distinct.
+A. Rerun the exact voucher test that failed for confirmation; test other voucher classes, totals, tax, refunds, and invoices for regression.  
+B. Test all unaffected features for confirmation; ask the developer to inspect the fix for regression.  
+C. Rerun the exact voucher test for regression only; confirmation requires a new test environment.  
+D. Review the voucher requirement for confirmation; rerun only the failed test for regression.
+
+Select ONE option.
+
+**Answer: A.** Confirmation testing checks whether the original defect was fixed. Regression testing checks whether the change caused adverse consequences elsewhere. A test can sometimes contribute to both objectives, but the objectives remain distinct. *(CTFL v4.0.1, section 2.2.3, PDF page 30.)*
 
 ### Q4 — shift-left decision
 
-The team plans a system-level load test only one week before release. Give two shift-left actions without claiming later testing is unnecessary.
+The team plans a system-level load test only one week before release. Which response best applies shift-left testing without eliminating necessary later testing?
 
-**Answer:** Review performance requirements and architecture early; run component/API performance checks in CI using suitable stubs. Retain representative system-level testing because integration, infrastructure, and production-like load can reveal different risks.
+A. Replace the system load test with a requirements review because static testing finds every performance problem.  
+B. Move the complete production-scale load test into unit testing and remove all later performance testing.  
+C. Review performance requirements and architecture early, run suitable component/API performance checks in CI, and retain representative system-level load testing.  
+D. Keep all performance testing one week before release because shift left applies only to functional tests.
+
+Select ONE option.
+
+**Answer: C.** Shift left encourages earlier testing, such as early reviews and lower-level performance checks, but it does not mean later test levels should be neglected. System-level testing can expose risks involving integration, infrastructure, and production-like load. *(CTFL v4.0.1, section 2.1.5, PDF page 27.)*
 
 ### Q5 — maintenance scope
 
-ShopEZ migrates its database while application code is unchanged. What should be tested?
+ShopEZ migrates its database while the application code remains unchanged. Which test scope is most appropriate?
 
-**Answer:** Data conversion completeness and accuracy, compatibility with the new database/platform, critical business flows, rollback/restore, and risk-based regression. “No application-code change” does not mean “no testing.”
+A. No testing, because maintenance testing is needed only when application code changes.  
+B. Only a static review of the migration script, because executing migrated data is unnecessary.  
+C. Only complete system retesting, without prioritization or migration-specific checks.  
+D. Test data conversion completeness and accuracy, platform compatibility, critical business flows, rollback/restore, and risk-based regression.
+
+Select ONE option.
+
+**Answer: D.** Migration is a maintenance trigger. Its scope can include testing the change, regression testing for side effects, and data migration tests; the unchanged application code does not remove those risks. *(CTFL v4.0.1, section 2.3.1, PDF page 31.)*
 
 ### Chapter 2 quick check
 
@@ -604,33 +674,68 @@ Review efficiency falls when a 200-page document is sent five minutes before a m
 
 ### Q1 — static or dynamic?
 
-Classify each: (a) a tool reports unreachable code; (b) a load tool records 4-second response time; (c) a reviewer finds contradictory acceptance criteria.
+Which option correctly classifies these findings: (a) a tool reports unreachable code; (b) a load tool records a 4-second response time; (c) a reviewer finds contradictory acceptance criteria?
 
-**Answer:** (a) static analysis; (b) dynamic non-functional testing; (c) review/static testing.
+A. (a) Static analysis; (b) dynamic non-functional testing; (c) review/static testing  
+B. (a) Dynamic functional testing; (b) static analysis; (c) dynamic testing  
+C. (a) Review; (b) static non-functional testing; (c) component testing  
+D. (a) Confirmation testing; (b) regression testing; (c) system testing
+
+Select ONE option.
+
+**Answer: A.** Static analysis can identify code anomalies without execution; measuring response time requires dynamic execution; and reviewing acceptance criteria is a static testing activity. *(CTFL v4.0.1, section 3.1.3, PDF page 34.)*
 
 ### Q2 — order the process
 
-A team has already distributed the correct document and role instructions. What comes next, and what should reviewers produce?
+A team has already distributed the correct document and role instructions during review initiation. What normally comes next, and what should reviewers produce?
 
-**Answer:** **Individual review** comes next. Reviewers record anomalies, questions, and recommendations. Communication/analysis follows to classify and assign them.
+A. Fixing and reporting; reviewers immediately modify the work product without recording findings.  
+B. Planning; reviewers select the review type and estimate effort for the first time.  
+C. Individual review; reviewers examine the work product and record anomalies, questions, and recommendations.  
+D. Communication and analysis; reviewers close all findings before inspecting the work product.
+
+Select ONE option.
+
+**Answer: C.** Individual review follows review initiation. Reviewers assess the work product and document potential anomalies, recommendations, and questions before communication and analysis. *(CTFL v4.0.1, section 3.2.2, PDF page 35.)*
 
 ### Q3 — select the review type
 
 An architect needs qualified peers to reach a decision on two security designs. An independent moderator will lead. Which type best fits?
 
-**Answer:** A **technical review** because technically qualified reviewers seek consensus/decisions under a moderator. An inspection primarily aims for maximum anomaly detection and has the greatest formality.
+A. Informal review  
+B. Walkthrough  
+C. Technical review  
+D. Inspection
+
+Select ONE option.
+
+**Answer: C.** A technical review is performed by technically qualified reviewers, is led by a moderator, and can aim to reach consensus and make decisions on technical alternatives. An inspection is the most formal review type and primarily seeks maximum anomaly detection. *(CTFL v4.0.1, section 3.2.4, PDF pages 36–37.)*
 
 ### Q4 — identify role conflict
 
-In a planned inspection, the author is also assigned as scribe. Is this acceptable?
+In a planned inspection, the author is also assigned as scribe. Which statement is correct?
 
-**Answer:** No. In an **inspection**, the author cannot be the review leader or scribe. Assign another recorder.
+A. This is required because only the author can record anomalies accurately.  
+B. This is acceptable whenever the author is also the manager.  
+C. This is not acceptable; in an inspection the author cannot act as the review leader or scribe.  
+D. This is not acceptable because authors may never participate in any review activity.
+
+Select ONE option.
+
+**Answer: C.** An inspection has defined roles and rules, including that the author cannot act as the review leader or scribe. The author may still participate in other permitted ways. *(CTFL v4.0.1, sections 3.2.3 and 3.2.4, PDF pages 36–37.)*
 
 ### Q5 — improve a failed review
 
-Reviewers received 150 pages the morning of a two-hour meeting, found few issues, and argued defensively. Name three high-value corrections.
+Reviewers received 150 pages on the morning of a two-hour meeting, found few issues, and argued defensively. Which improvement package is most likely to make the review effective?
 
-**Answer:** Review smaller chunks; provide adequate individual preparation time; define clear objectives/exit criteria; use a trained moderator to create a safe, non-blaming meeting; and train participants. Any three supported changes are valid.
+A. Review smaller chunks, allow adequate individual preparation, define clear objectives and exit criteria, and use a trained moderator to support a safe discussion.  
+B. Increase the document size, remove individual preparation, and let the author defend every disputed point.  
+C. Measure success only by the number of meeting hours and require managers to overrule reviewers.  
+D. Remove review objectives and checklists so participants can discuss any topic without constraints.
+
+Select ONE option.
+
+**Answer: A.** Review success factors include clear objectives, manageable work-product size, adequate preparation time, participant training, and facilitation that promotes a culture of learning rather than blame. *(CTFL v4.0.1, section 3.2.5, PDF page 37.)*
 
 ### Chapter 3 quick check
 
@@ -950,72 +1055,133 @@ The workshop converted vague “qualifying” language into testable rules befor
 
 ### Q1 — EP derivation
 
-A password length must be 8–20 characters inclusive. Assume length is a non-negative integer. Identify partitions and a minimum EP set.
+A password length must be 8–20 characters inclusive. Assume length is a non-negative integer and no other input types are in scope. Which partitions and test set achieve 100% equivalence partition coverage?
 
-**Answer:** Invalid `0–7`, valid `8–20`, invalid `21+`. Representatives such as `5, 12, 25` achieve 100% EP coverage. If the input technology also allows null/non-string values and the specification distinguishes them, they form additional partitions; do not invent them unless in scope.
+A. Invalid `0–7`, valid `8–20`, invalid `21+`; test `5, 12, 25`  
+B. Valid `0–7`, invalid `8–20`, valid `21+`; test `7, 8, 20`  
+C. Invalid `0–8`, valid `9–19`, invalid `20+`; test `8, 12, 20`  
+D. One valid partition `8–20`; test `8, 12, 20`
+
+Select ONE option.
+
+**Answer: A.** The rule creates one valid partition and two invalid partitions. One representative from each partition, such as `5, 12, 25`, gives 100% equivalence partition coverage for the stated scope. *(CTFL v4.0.1, section 4.2.1, PDF pages 39–40.)*
 
 ### Q2 — 2-value and 3-value BVA
 
-For the same 8–20 rule, derive the unique values.
+For the same inclusive 8–20 password-length rule, which unique-value sets correctly apply 2-value and 3-value boundary value analysis?
 
-**Answer:** 2-value BVA: `7, 8, 20, 21`. 3-value BVA: `7, 8, 9, 19, 20, 21`.
+A. 2-value: `8, 20`; 3-value: `7, 8, 20, 21`  
+B. 2-value: `7, 8, 20, 21`; 3-value: `7, 8, 9, 19, 20, 21`  
+C. 2-value: `7, 9, 19, 21`; 3-value: `6, 8, 10, 18, 20, 22`  
+D. 2-value: `8, 9, 19, 20`; 3-value: `7, 9, 12, 19, 21`
+
+Select ONE option.
+
+**Answer: B.** For 2-value BVA, use each boundary and its closest neighbor in the adjacent partition. For 3-value BVA, also include each boundary’s neighbor within the same partition. *(CTFL v4.0.1, section 4.2.2, PDF page 40.)*
 
 ### Q3 — BVA coverage
 
 For valid quantity 1–100, a 3-value suite runs `0, 1, 2, 99, 100` but not `101`. What is coverage?
 
-**Answer:** The six items are `0,1,2,99,100,101`; five were exercised. Coverage is `5/6 = 83.3%`.
+A. 50.0%  
+B. 80.0%  
+C. 83.3%  
+D. 100.0%
+
+Select ONE option.
+
+**Answer: C.** The six 3-value boundary coverage items are `0, 1, 2, 99, 100, 101`. Five are exercised, so coverage is `5/6 = 83.3%`. *(CTFL v4.0.1, section 4.2.2, PDF page 40.)*
 
 ### Q4 — decision table
 
-A refund is auto-approved if the purchase is within 30 days **and** the item is unopened. Otherwise it requires manual review. Create a full limited-entry table and minimum tests.
+A refund is auto-approved if the purchase is within 30 days **and** the item is unopened. Otherwise it requires manual review. Which statement correctly describes the full limited-entry decision table and the tests needed for 100% rule coverage?
 
-**Answer:**
+A. It has two feasible rules; one auto-approval test and one manual-review test always give full rule coverage.  
+B. It has three feasible rules; both conditions are irrelevant whenever manual review occurs.  
+C. It has four feasible rules for `TT`, `TF`, `FT`, and `FF`; only `TT` auto-approves, and one test per rule means four tests.  
+D. It has eight feasible rules because each action must independently be both true and false.
 
-| Conditions/actions | R1 | R2 | R3 | R4 |
-|---|:---:|:---:|:---:|:---:|
-| Within 30 days? | T | T | F | F |
-| Unopened? | T | F | T | F |
-| Auto-approve | X |  |  |  |
-| Manual review |  | X | X | X |
+Select ONE option.
 
-One test per column gives 100% rule coverage. The three manual-review columns cannot be merged unless the differing condition is shown as irrelevant for the outcome and the business accepts the minimized rule `not(within 30 and unopened)`.
+**Answer: C.** Two Boolean conditions produce four combinations in a full limited-entry table. Only `within 30 days = true` and `unopened = true` causes auto-approval; the other three rules require manual review. One test per feasible rule gives 100% rule coverage. *(CTFL v4.0.1, section 4.2.3, PDF page 41.)*
 
 ### Q5 — state coverage
 
 A turnstile has `Locked` and `Unlocked`. `coin` moves Locked→Unlocked; `push` moves Unlocked→Locked. `push` in Locked and `coin` in Unlocked are invalid. What does sequence `coin, push` cover from Locked?
 
-**Answer:** Both states and both valid transitions: 100% all-states and 100% valid-transition coverage. It gives 0% coverage of the two invalid transitions, so not 100% all-transitions coverage. Add separate attempts for `push` while Locked and `coin` while Unlocked.
+A. 50% state coverage and 50% valid-transition coverage  
+B. 100% state coverage, 100% valid-transition coverage, and 0% invalid-transition coverage  
+C. 100% coverage of all valid and invalid transitions  
+D. 0% state coverage because the sequence returns to the starting state
+
+Select ONE option.
+
+**Answer: B.** The sequence visits both states and exercises both valid transitions. It does not attempt either invalid transition, so it provides no invalid-transition coverage and is not 100% all-transitions coverage. *(CTFL v4.0.1, section 4.2.4, PDF pages 41–42.)*
 
 ### Q6 — statement vs branch
 
 Using the premium-discount code above, a single true test achieves what?
 
-**Answer:** 100% statement coverage but not 100% branch coverage. Add a false test for full decision-outcome branch coverage. Branch coverage subsumes statement coverage, not vice versa.
+A. 100% statement coverage but not 100% branch coverage  
+B. 100% branch coverage but not 100% statement coverage  
+C. 100% statement and branch coverage  
+D. Neither statement nor branch coverage
+
+Select ONE option.
+
+**Answer: A.** The true test executes every statement in the example, but it exercises only the true outcome of the decision. A false test is needed for 100% branch coverage; branch coverage subsumes statement coverage, not vice versa. *(CTFL v4.0.1, sections 4.3.1–4.3.3, PDF pages 42–43.)*
 
 ### Q7 — choose a technique
 
 Requirements contain combinations of membership, order value, and voucher validity that produce different discounts. Which technique should lead, and what may complement it?
 
-**Answer:** Lead with **decision table testing** because condition combinations determine actions. Use EP/BVA for order-value ranges and exploratory/error guessing for unanticipated interactions.
+A. Lead with statement testing; use branch testing only for visual design.  
+B. Lead with decision table testing; complement it with EP/BVA for value ranges and exploratory testing or error guessing for unanticipated interactions.  
+C. Lead with state transition testing because every business rule necessarily represents a state.  
+D. Lead with checklist-based testing and exclude all black-box techniques.
+
+Select ONE option.
+
+**Answer: B.** Decision tables are well suited to combinations of conditions that produce different actions. Equivalence partitioning and boundary value analysis can cover order-value ranges, while experience-based techniques can explore interactions not explicitly modeled. *(CTFL v4.0.1, sections 4.2.1–4.2.3 and 4.4.2, PDF pages 39–41 and 44.)*
 
 ### Q8 — ATDD derivation
 
-Story: “As a registered customer, I can retry sign-in, but my account locks after three consecutive failures.” Write essential acceptance tests.
+Story: “As a registered customer, I can retry sign-in, but my account locks after three consecutive failures.” Which acceptance-test set best covers the essential behavior?
 
-**Answer:** At minimum: successful sign-in from zero failures; one and two failures remain active; third consecutive failure locks; a success after one/two failures resets the count; sign-in while locked is rejected; authorized reset unlocks. These are state-transition sequences, not isolated input tests. Include expected messages/security behavior if the acceptance criteria define them.
+A. Test only a successful sign-in and one failed sign-in because both input classes have been represented.  
+B. Test three isolated invalid passwords, each starting from a fresh account, and verify only the error text.  
+C. Test success from zero failures; one and two consecutive failures remaining active; the third failure locking the account; success resetting a partial failure count; rejection while locked; and authorized reset unlocking it.  
+D. Test database performance under load without checking account state transitions.
+
+Select ONE option.
+
+**Answer: C.** The rule depends on sequences and state changes, so the acceptance tests must cover the failure count, reset after success, lock transition, behavior while locked, and authorized recovery. *(CTFL v4.0.1, sections 4.2.4 and 4.5.3, PDF pages 41–42 and 46.)*
 
 ### Q9 — test-design diagnosis
 
 A tester selects 15, 16, and 17 for a valid range 1–100 and claims strong coverage because three values were used. What is wrong?
 
-**Answer:** All values are in one valid equivalence partition and none targets a boundary. More test cases do not imply more coverage. Use representatives from every partition and boundary-focused values according to the selected criterion.
+A. Nothing; any three distinct values guarantee full equivalence partition and boundary coverage.  
+B. All three values are in the same valid equivalence partition and none targets a boundary.  
+C. The values are invalid because only 1 and 100 are permitted.  
+D. The only problem is that the values were executed in ascending order.
+
+Select ONE option.
+
+**Answer: B.** Test quantity alone does not determine coverage. These values exercise only one valid partition and do not target either boundary; representatives from all relevant partitions and boundary values are needed for the selected criteria. *(CTFL v4.0.1, sections 4.2.1 and 4.2.2, PDF pages 39–40.)*
 
 ### Q10 — exploratory charter
 
-Write a focused charter for a 45-minute payment session.
+Which is the best-focused charter for a 45-minute exploratory payment session?
 
-**Answer:** Example: “Explore card payment recovery for duplicate submission, network interruption, timeout, and browser refresh using state modeling and error guessing for 45 minutes; record whether at most one charge/order is created.” It states scope, risks, techniques, time box, and observable mission.
+A. “Test payments thoroughly until every possible defect has been found.”  
+B. “Spend 45 minutes confirming that the happy path works once on one browser.”  
+C. “Explore anything interesting in the application and report whether it seems good.”  
+D. “Explore card-payment recovery from duplicate submission, network interruption, timeout, and browser refresh using state modeling and error guessing for 45 minutes; check that at most one charge and order are created.”
+
+Select ONE option.
+
+**Answer: D.** A useful charter defines a focused scope, objective or risk, relevant techniques, a time box, and an observable mission while leaving the tester freedom to adapt during execution. *(CTFL v4.0.1, section 4.4.2, PDF page 44.)*
 
 ## Chapter 4 quick check
 
@@ -1309,61 +1475,131 @@ A title such as “Payment broken” is not sufficient. Severity and priority ar
 
 Historical development:test effort is 5:2. New development effort is 750 person-days. Estimate test effort.
 
-**Answer:** `750 × 2/5 = 300 person-days`, assuming the new project is comparable and the ratio includes the same work.
+A. 150 person-days  
+B. 300 person-days  
+C. 750 person-days  
+D. 1,875 person-days
+
+Select ONE option.
+
+**Answer: B.** Using the historical ratio, test effort is `750 × 2/5 = 300 person-days`, assuming the new project is comparable and the ratio covers the same work. *(CTFL v4.0.1, section 5.1.4, PDF pages 49–50.)*
 
 ### Q2 — extrapolation
 
 Test effort in the last three similar iterations was 32, 40, and 36 person-days. Using a simple average, estimate the next iteration.
 
-**Answer:** `(32+40+36)/3 = 36 person-days`. State the model and reassess if scope/team/context changes.
+A. 32 person-days  
+B. 36 person-days  
+C. 40 person-days  
+D. 108 person-days
+
+Select ONE option.
+
+**Answer: B.** The simple average is `(32 + 40 + 36) / 3 = 36 person-days`. The estimate should be reconsidered if scope, team, or context is not comparable. *(CTFL v4.0.1, section 5.1.4, PDF pages 49–50.)*
 
 ### Q3 — three-point estimate
 
 Given `a=8`, `m=14`, `b=26` hours, calculate E and SD.
 
-**Answer:** `E=(8+4×14+26)/6=90/6=15`; `SD=(26−8)/6=3`. Report **15 ± 3 hours** (approximately 12–18).
+A. `E = 14`, `SD = 6` hours  
+B. `E = 15`, `SD = 3` hours  
+C. `E = 16`, `SD = 9` hours  
+D. `E = 48`, `SD = 18` hours
+
+Select ONE option.
+
+**Answer: B.** Applying three-point estimation, `E = (a + 4m + b) / 6 = (8 + 4×14 + 26) / 6 = 15` hours and `SD = (b − a) / 6 = (26 − 8) / 6 = 3` hours. *(CTFL v4.0.1, section 5.1.4, PDF pages 49–50.)*
 
 ### Q4 — Wideband Delphi
 
 One senior engineer says 5 days before anyone else speaks; the group quickly agrees. What process property was lost?
 
-**Answer:** Initial **independent estimation**, intended to reduce anchoring and dominance. Collect estimates privately first, discuss assumptions/outliers, and re-estimate independently.
+A. Initial independent estimation, which reduces anchoring and dominance  
+B. The requirement to use only historical ratio-based estimation  
+C. The rule that the test manager must make every estimate alone  
+D. The requirement to execute tests before estimating them
+
+Select ONE option.
+
+**Answer: A.** Wideband Delphi begins with independent estimates before discussion. This reduces anchoring by influential participants; the group can then discuss assumptions and re-estimate independently. *(CTFL v4.0.1, section 5.1.4, PDF pages 49–50.)*
 
 ### Q5 — prioritization with dependency
 
-T1 is low priority but creates data required by high-priority T2. T3 is high priority and independent. What is a rational order?
+T1 is low priority but creates data required by high-priority T2. T3 is high priority and independent. Which order runs an independent high-priority test first and also satisfies the dependency?
 
-**Answer:** Run **T3** early because it is high priority and independent; run **T1 before T2** because the dependency overrides T2’s nominal priority. Thus T3, T1, T2 is reasonable, subject to resources.
+A. T2, T3, T1  
+B. T1, T2, T3  
+C. T3, T1, T2  
+D. T3, T2, T1
+
+Select ONE option.
+
+**Answer: C.** T3 can run early because it is high priority and independent. T1 must precede T2 because the dependency overrides T2’s nominal priority, making `T3, T1, T2` a rational order. *(CTFL v4.0.1, section 5.1.5, PDF page 50.)*
 
 ### Q6 — additional coverage
 
 T1 covers A,B,C; T2 covers B,C,D; T3 covers D,E; T4 covers A,E,F. If T1 is first, which tests maximize additional coverage next?
 
-**Answer:** T3 and T4 each add two new items; either can be second. After choosing T4, both T2 and T3 add only D, so they tie on additional coverage. Break the tie using risk, cost, priority, or dependency.
+A. T2 only, because it shares the most items with T1  
+B. T3 or T4, because each adds two previously uncovered items  
+C. T4 only, because alphabetical order breaks every prioritization tie  
+D. None, because T1 already provides 100% coverage
+
+Select ONE option.
+
+**Answer: B.** After T1 covers A, B, and C, T3 adds D and E while T4 adds E and F. Each adds two new coverage items, so either can be selected next; risk, cost, priority, or dependencies can break the tie. *(CTFL v4.0.1, section 5.1.5, PDF page 50.)*
 
 ### Q7 — product or project risk
 
-Classify: (a) the only performance tester resigns; (b) checkout exposes card data; (c) the test environment arrives late.
+Which option correctly classifies these risks: (a) the only performance tester resigns; (b) checkout exposes card data; (c) the test environment arrives late?
 
-**Answer:** (a) project risk; (b) product risk; (c) project risk. Their consequences may interact, but classify the risk event itself.
+A. (a) Product; (b) project; (c) product  
+B. (a) Project; (b) product; (c) project  
+C. (a) Product; (b) product; (c) project  
+D. (a) Project; (b) project; (c) product
+
+Select ONE option.
+
+**Answer: B.** Staff loss and late environments threaten project execution, so they are project risks. Exposure of card data is a quality problem in the product and therefore a product risk. *(CTFL v4.0.1, sections 5.2.1 and 5.2.2, PDF page 52.)*
 
 ### Q8 — risk-based response
 
-A payment-duplication risk has high impact and medium likelihood. Give a test response.
+A payment-duplication risk has high impact and medium likelihood. Which is the most appropriate testing response?
 
-**Answer:** Prioritize it early; assign skilled testers; use independent review, state-transition and concurrency/interruption tests, strong coverage, production-like integration, and automated regression; monitor residual risk. Acceptance/transfer/contingency are business options, not substitutes for consciously chosen control.
+A. Defer it until all low-risk cosmetic tests pass, because likelihood is not high.  
+B. Run one happy-path test and close the risk if it passes.  
+C. Prioritize it early, assign skilled testers, apply strong review and state/concurrency/interruption coverage in a realistic integration environment, automate regression where useful, and monitor residual risk.  
+D. Transfer the risk to users and omit testing because risk acceptance is a business decision.
+
+Select ONE option.
+
+**Answer: C.** Product risk analysis influences test scope, levels, techniques, coverage, effort, priority, and expertise. A high-impact payment risk warrants early and thorough testing plus monitoring of the residual risk. *(CTFL v4.0.1, section 5.2.4, PDF page 53.)*
 
 ### Q9 — progress or completion report?
 
 A weekly document lists execution status, blockers, changed risks, and next week’s plan. Which report?
 
-**Answer:** **Test progress report**. A completion report instead summarizes a completed scope against objectives and exit criteria, including unresolved risks/defects and lessons.
+A. Test progress report  
+B. Test completion report  
+C. Defect report  
+D. Test charter
+
+Select ONE option.
+
+**Answer: A.** A test progress report supports ongoing control by describing current status, impediments, risks, and planned work. A completion report summarizes completed testing against objectives and exit criteria. *(CTFL v4.0.1, section 5.3.2, PDF pages 54–55.)*
 
 ### Q10 — evaluate defect report
 
-Report: “App crashed. High priority. Please fix.” Name the most important missing information.
+Report: “App crashed. High priority. Please fix.” Which option best identifies the information needed to make this a useful defect report?
 
-**Answer:** Exact build/object and environment, preconditions/data, reproducible steps, expected and actual results, evidence/logs, impact-based severity, rationale for priority, reporter/date, and references. Without these, resolution and confirmation are unreliable.
+A. Only the tester’s preferred solution and the developer’s name  
+B. Exact build and environment, preconditions and data, reproducible steps, expected and actual results, evidence, severity and priority rationale, reporter/date, and references  
+C. Only a higher priority value and a shorter title  
+D. The complete source code for the application, but no reproduction steps
+
+Select ONE option.
+
+**Answer: B.** A useful defect report supplies enough context and evidence to reproduce, analyze, resolve, and confirm the defect, while distinguishing impact-based severity from business-oriented priority. *(CTFL v4.0.1, section 5.5, PDF pages 56–57.)*
 
 ### Chapter 5 quick check
 
@@ -1437,31 +1673,66 @@ A tool is not a strategy. Automating poor tests only executes poor tests faster.
 
 A tool creates 5,000 virtual users and records latency percentiles. Which category?
 
-**Answer:** A **non-functional testing tool**, specifically supporting performance testing. It may also integrate with execution/reporting tools.
+A. A non-functional testing tool supporting performance testing  
+B. A static analysis tool supporting code review only  
+C. A test management tool supporting estimation only  
+D. A collaboration tool supporting acceptance-criteria writing only
+
+Select ONE option.
+
+**Answer: A.** Simulating many users and measuring latency supports dynamic, non-functional performance testing, even if the tool also integrates with execution or reporting systems. *(CTFL v4.0.1, section 6.1, PDF page 59.)*
 
 ### Q2 — benefit or risk?
 
-A suite runs consistently overnight and frees testers for exploratory work, but UI changes require frequent script repair.
+A suite runs consistently overnight and frees testers for exploratory work, but UI changes require frequent script repair. Which assessment is correct?
 
-**Answer:** Consistent repeated execution and freed human time are benefits; underestimated maintenance cost is a risk.
+A. Consistency and freed tester time are risks; script repair is a benefit.  
+B. All three outcomes are guaranteed benefits of automation.  
+C. Consistent repeated execution and freed tester time are benefits; recurring script maintenance is a risk or cost.  
+D. None of the outcomes is related to test automation.
+
+Select ONE option.
+
+**Answer: C.** Automation can provide repeatability and save manual effort, but maintenance effort—especially for unstable interfaces—is a recognized risk and must be included in the adoption decision. *(CTFL v4.0.1, section 6.2, PDF pages 59–60.)*
 
 ### Q3 — tool decision
 
 A team wants to automate a one-time, rapidly changing visual prototype evaluation. What should it consider?
 
-**Answer:** Manual exploratory/usability testing may be more appropriate. Compare automation build/maintenance cost with expected repetitions and decision value rather than assuming automation is always better.
+A. Automate it fully because every test activity benefits equally from automation.  
+B. Prefer manual exploratory/usability testing if it offers better value after comparing automation build and maintenance cost with expected repetition and decision value.  
+C. Cancel all testing because rapidly changing products cannot be evaluated.  
+D. Select a tool solely because it has the most features, regardless of objectives or compatibility.
+
+Select ONE option.
+
+**Answer: B.** Tool support should be selected for the activity and context. For a one-time, rapidly changing visual prototype, automation costs may exceed its benefit, while human exploratory and usability assessment may provide greater value. *(CTFL v4.0.1, sections 6.1 and 6.2, PDF pages 59–60.)*
 
 ### Q4 — overreliance
 
 Coverage reports 100%, but users still cannot complete checkout. Explain.
 
-**Answer:** Coverage shows selected structural or requirement items were exercised, not that behavior is correct or useful. Missing/incorrect requirements, weak assertions, usability issues, and oracle defects can remain. Human validation and complementary techniques are needed.
+A. 100% coverage guarantees defect-free software, so the users must be mistaken.  
+B. Coverage proves that selected items were exercised, not that behavior is correct or useful; missing requirements, weak oracles, and usability problems may remain.  
+C. Any coverage metric above 80% removes the need for validation.  
+D. The only possible explanation is that the coverage tool calculated the percentage incorrectly.
+
+Select ONE option.
+
+**Answer: B.** A coverage result describes the exercised coverage items and criterion. It does not prove correctness, suitability, or absence of defects; complementary techniques and human validation are still needed. *(CTFL v4.0.1, sections 1.3 and 6.2, PDF pages 18 and 59–60.)*
 
 ### Q5 — safe adoption
 
-List four controls before adopting a new execution tool.
+Which package provides the strongest controls before adopting a new test-execution tool?
 
-**Answer:** Validate objectives; assess platform/regulatory fit; pilot representative tests; estimate introduction plus maintenance effort; train users; define ownership/support; measure outcomes; preserve manual judgment. Any four well-explained controls are acceptable.
+A. Buy the tool with the longest feature list, automate everything immediately, and measure only the number of scripts.  
+B. Let one enthusiastic tester deploy it without a pilot, training, maintenance owner, or success criteria.  
+C. Replace all manual testing as soon as the first automated test passes.  
+D. Define objectives, assess technical and regulatory fit, pilot representative tests, estimate introduction and maintenance effort, train users, assign ownership, and monitor outcomes.
+
+Select ONE option.
+
+**Answer: D.** Successful tool introduction depends on realistic objectives and expectations, a suitable pilot, organizational and technical fit, training, ownership, maintenance planning, and measurement of benefits and risks. *(CTFL v4.0.1, section 6.2, PDF pages 59–60.)*
 
 ## Chapter 6 quick check
 
@@ -1527,16 +1798,25 @@ The official sample question documents sort questions by learning objective to s
 
 *Analysis source: official ISTQB CTFL v4.0.1 sample sets A v1.7, B v1.7, C v1.6, and D v1.5, using their 40 scored questions and answer-key learning-objective mappings. No official question text is reproduced here.*
 
-## Formula sheet
+## Exam calculation sheet
 
-- `Coverage % = exercised coverage items / total coverage items × 100`
-- `Risk level (quantitative example) = likelihood × impact`
-- `Ratio estimate = known effort × applicable historical ratio`
-- `Simple extrapolation = observed rate or average × remaining comparable work`
-- `Three-point E = (a + 4m + b) / 6`
-- `Three-point SD = (b − a) / 6`
+The official sample exams use simple arithmetic, but they test whether you choose the correct inputs and denominator. Do not memorize sample answers or answer letters. Prepare to recall the formulas below: Samples A and D ask for a three-point estimate without supplying its formula.
 
-Always name the coverage item and denominator before calculating.
+### Formulas to memorize and apply
+
+| Purpose | Formula | Exam use |
+|---|---|---|
+| Coverage | `coverage % = exercised coverage items / total coverage items × 100` | First identify the correct coverage item. For example, use partitions for EP, boundary values or boundary-neighbor items for BVA, feasible columns for decision tables, transitions for transition coverage, executable statements for statement coverage, and branches for branch coverage. *(CTFL v4.0.1, sections 4.2.1–4.3.2, PDF pages 40–43.)* |
+| Three-point estimate | `E = (a + 4m + b) / 6` | `a` is optimistic, `m` is most likely, and `b` is pessimistic. The most-likely estimate has four times the weight. *(CTFL v4.0.1, section 5.1.4, PDF page 50.)* |
+| Three-point measurement error | `SD = (b − a) / 6` | Report the result as approximately `E ± SD` when the question asks for the measurement error or range. *(CTFL v4.0.1, section 5.1.4, PDF page 50.)* |
+| Quantitative risk level | `risk level = risk likelihood × risk impact` | Rearrange when needed: `impact = level / likelihood` or `likelihood = level / impact`. Convert a percentage likelihood to a decimal before calculating. *(CTFL v4.0.1, section 5.2.1, PDF page 53.)* |
+| Ratio-based estimate | `new test effort = new development effort × historical test-to-development ratio` | Derive the ratio from comparable historical projects before applying it. If development:test is `5:2`, the test-to-development ratio is `2/5`. *(CTFL v4.0.1, section 5.1.4, PDF page 49.)* |
+
+### Understand rather than memorize as one fixed formula
+
+- **Extrapolation:** apply the model stated in the question or extrapolate comparable current-project observations, such as an average from recent iterations. There is no single universal extrapolation equation in the syllabus. Official Sample C supplies its particular model in the question. *(CTFL v4.0.1, section 5.1.4, PDF pages 49–50.)*
+- **EP, BVA, decision tables, and state transitions:** these usually require identifying and counting coverage items, tracing rules or paths, and then applying the general coverage formula. They do not have separate arithmetic formulas to memorize. *(CTFL v4.0.1, sections 4.2.1–4.2.4, PDF pages 39–42.)*
+- **Full decision tables:** do not automatically use `2^n`. Irrelevant conditions, infeasible combinations, extended-entry conditions, and minimized rules can change the number of columns that must be tested. Count the feasible rule columns shown or derived from the question. *(CTFL v4.0.1, section 4.2.3, PDF page 41.)*
 
 ## Integrated scenario practice
 
@@ -1553,7 +1833,9 @@ B. Valid 51–999; invalid 50 and 1,000
 C. Valid above 50 only; invalid below 50  
 D. One valid partition containing all numeric values
 
-**Answer: A.** “From $50 through $1,000 inclusive” makes both endpoints valid.
+Select ONE option.
+
+**Answer: A.** “From $50 through $1,000 inclusive” makes both endpoints valid and creates one valid partition between two invalid partitions. *(CTFL v4.0.1, section 4.2.1, PDF pages 39–40.)*
 
 ### Q2
 
@@ -1564,7 +1846,9 @@ B. 49, 50, 1,000, 1,001
 C. 49, 50, 51, 999, 1,000, 1,001  
 D. 0, 500, 2,000
 
-**Answer: B.** Boundary plus closest neighbor in the adjacent partition for both boundaries. C is the 3-value set.
+Select ONE option.
+
+**Answer: B.** Two-value BVA uses each boundary plus its closest neighbor in the adjacent partition. Option C is the corresponding 3-value set. *(CTFL v4.0.1, section 4.2.2, PDF page 40.)*
 
 ### Q3
 
@@ -1575,7 +1859,9 @@ B. Code statement count only
 C. Tester seniority only  
 D. Browser color theme only
 
-**Answer: A.** Those conditions determine eligibility actions. Structural coverage and staffing do not define the business rule.
+Select ONE option.
+
+**Answer: A.** Registered status and adult status combine with the amount to determine eligibility actions, making them relevant decision-table conditions. *(CTFL v4.0.1, section 4.2.3, PDF page 41.)*
 
 ### Q4
 
@@ -1586,7 +1872,9 @@ B. $50, $51, $999
 C. open requirement document  
 D. run the same successful request once
 
-**Answer: A.** It checks reset-after-success and transition to ManualReview after three consecutive timeouts.
+Select ONE option.
+
+**Answer: A.** The event sequence checks that success resets the timeout count and that three later consecutive timeouts cause the transition to `ManualReview`. *(CTFL v4.0.1, section 4.2.4, PDF pages 41–42.)*
 
 ### Q5
 
@@ -1597,7 +1885,9 @@ B. System integration testing
 C. User acceptance only  
 D. Static testing only
 
-**Answer: B.** The focus is the interface between the system under test and an external service. Static review and other levels may complement it.
+Select ONE option.
+
+**Answer: B.** System integration testing focuses on interfaces and interactions between the system under test and external systems or services. Other test levels and static reviews may complement it. *(CTFL v4.0.1, section 2.2.1, PDF page 29.)*
 
 ### Q6
 
@@ -1608,7 +1898,9 @@ B. 8
 C. 15  
 D. 35
 
-**Answer: C.** `3 × 5 = 15`. Treatment still requires judgment and agreed scale thresholds.
+Select ONE option.
+
+**Answer: C.** A quantitative risk level can be calculated as likelihood multiplied by impact: `3 × 5 = 15`. Treatment still requires judgment and agreed scale thresholds. *(CTFL v4.0.1, section 5.2.1, PDF page 52.)*
 
 ### Q7
 
@@ -1619,7 +1911,9 @@ B. Confirmation testing
 C. Regression testing only  
 D. QA only
 
-**Answer: B.** It directly checks the original failure. Other payment, order, and retry tests address regression.
+Select ONE option.
+
+**Answer: B.** Rerunning the test that previously failed directly checks whether the original defect was fixed. Other payment, order, and retry tests can address regression. *(CTFL v4.0.1, section 2.2.3, PDF page 30.)*
 
 ### Q8
 
@@ -1630,7 +1924,9 @@ B. Review eligibility criteria and timeout-state model with business, developers
 C. Execute production transactions  
 D. Remove acceptance criteria
 
-**Answer: B.** It can expose ambiguity and missing rules before code.
+Select ONE option.
+
+**Answer: B.** Reviewing requirements and models with varied stakeholders can expose ambiguity and missing rules early, before executable code exists. *(CTFL v4.0.1, section 3.1.2, PDF page 33.)*
 
 ### Q9
 
@@ -1641,7 +1937,9 @@ B. Error happened
 C. Third consecutive credit timeout creates two BNPL agreements in build 5.2.0  
 D. Please fix urgently
 
-**Answer: C.** It identifies the trigger, failure, and build. The body must still provide environment, steps, expected/actual, evidence, severity, and priority.
+Select ONE option.
+
+**Answer: C.** The title identifies the trigger, observed failure, and build. The report body must still provide the environment, steps, expected and actual results, evidence, severity, and priority. *(CTFL v4.0.1, section 5.5, PDF pages 56–57.)*
 
 ### Q10
 
@@ -1652,7 +1950,9 @@ B. 22
 C. 24  
 D. 66
 
-**Answer: B.** `(20+24+22)/3 = 22`, assuming comparable work and team conditions.
+Select ONE option.
+
+**Answer: B.** Simple extrapolation gives `(20 + 24 + 22) / 3 = 22`, assuming comparable work and team conditions. *(CTFL v4.0.1, section 5.1.4, PDF pages 49–50.)*
 
 ### Q11
 
@@ -1663,7 +1963,9 @@ B. Tool maintenance requires effort
 C. 100% automated execution proves the feature has no defects  
 D. A pipeline can run tests consistently
 
-**Answer: C.** It violates the principle that testing shows presence, not absence, and overstates what automation and coverage prove.
+Select ONE option.
+
+**Answer: C.** Testing can show the presence of defects, not prove their absence. Automated execution and coverage therefore cannot establish that a feature is defect-free. *(CTFL v4.0.1, sections 1.3 and 6.2, PDF pages 18 and 59–60.)*
 
 ### Q12
 
@@ -1674,7 +1976,9 @@ B. Test completion report
 C. Review checklist  
 D. Test data file
 
-**Answer: B.** Those are typical completion-report contents.
+Select ONE option.
+
+**Answer: B.** A test completion report evaluates completed testing against objectives and exit criteria and typically includes unmitigated risks, unfixed defects, and lessons learned. *(CTFL v4.0.1, section 5.3.2, PDF page 55.)*
 
 ## Complete learning-objective checklist
 
