@@ -1,4 +1,4 @@
-# Week 3 Notes: Techniques, Management, and Tools
+and # Week 3 Notes: Techniques, Management, and Tools
 
 ## 1. White-box testing
 

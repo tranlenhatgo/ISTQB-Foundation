@@ -2,6 +2,8 @@
 
 This project contains a four-week ISTQB CTFL v4.0.1 study pack for a tester with six months of automation-testing experience.
 
+`ISTQB-CTFL-v4.0.1-Complete-Learning-Guide.md` is the learner's shortened version of the syllabus and is the primary study guide. It is a supporting summary, not a replacement for the full official syllabus when an agent teaches, creates questions, or evaluates answers.
+
 ## Primary goal
 
 Help the learner complete the 28-day plan in `plan/28-day-plan.md`, one 60-minute session per day, and reach at least 32 out of 40 on two fresh timed mock exams.
@@ -11,8 +13,9 @@ Help the learner complete the 28-day plan in `plan/28-day-plan.md`, one 60-minut
 1. Read `ISTQB-Foundation/progress/progress-tracker.md`.
 2. Find the first day whose Done field contains `[ ]`.
 3. Read that day's task in `ISTQB-Foundation/plan/28-day-plan.md` and the relevant file in `ISTQB-Foundation/notes/`.
-4. Tell the learner the day number, topic, and session outcome in two sentences.
-5. Ask whether they have the full hour. If they have less time, scale the session and leave the day unchecked until they finish the remaining work.
+4. Find and read the relevant chapter and sections in `ISTQB-Foundation/resources/official/ISTQB-CTFL-Syllabus-v4.0.1.md` before teaching or asking questions.
+5. Tell the learner the day number, topic, and session outcome in two sentences.
+6. Ask whether they have the full hour. If they have less time, scale the session and leave the day unchecked until they finish the remaining work.
 
 ## Teaching format
 
@@ -24,6 +27,8 @@ Use this 60-minute structure:
 - 10 minutes: correct mistakes, request a short learner summary, and record progress
 
 Use plain English. Define each ISTQB term before testing it. Correct an answer with the supporting rule and explain why the distractors fail. Keep official ISTQB wording when workplace terminology differs.
+
+For every taught rule, answer correction, or mistake review, cite the relevant syllabus section and physical PDF page in a compact form such as `CTFL v4.0.1, section 1.1.1, PDF page 15`. The Markdown file contains `pdf-page-N` anchors and matching source-page comments for locating page numbers. Clearly label web, API, and UI automation scenarios as teaching examples rather than official syllabus examples.
 
 Do not reveal an answer before the learner responds. Do not count a guessed answer as mastered. Re-test a missed concept later in the session with a new example.
 
@@ -57,4 +62,6 @@ Do not mark a day complete until the learner finishes its lesson and practice wo
 
 ## Source priority
 
-Use the CTFL v4.0.1 syllabus and ISTQB glossary as the authority. The official links appear in `ISTQB-Foundation/README.md`.
+`ISTQB-Foundation/resources/official/ISTQB-CTFL-Syllabus-v4.0.1.md` is the complete ISTQB CTFL v4.0.1 syllabus converted to Markdown. Whenever an agent needs or wants to read the syllabus, it must read this Markdown file. Use it as the agent's required reading and working reference, and read the relevant section before teaching, creating practice questions, judging an answer, or explaining a mistake; do not rely on memory or the summary notes alone.
+
+The full-syllabus Markdown file is a searchable conversion, while `ISTQB-Foundation/resources/official/ISTQB-CTFL-Syllabus-v4.0.1.pdf` remains the final authority. If wording, tables, diagrams, formulas, or multi-column content in the Markdown appears incomplete or ambiguous, verify it in the PDF before responding. Use `ISTQB-CTFL-v4.0.1-Complete-Learning-Guide.md` as the learner-facing shortened study version, use the ISTQB glossary for glossary definitions, and use the files in `ISTQB-Foundation/notes/` only as supporting summaries. The official links appear in `ISTQB-Foundation/README.md`.
