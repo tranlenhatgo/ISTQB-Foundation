@@ -1314,16 +1314,53 @@ Names and layer count vary. The principle is about feedback speed, isolation, ma
 
 ## 5.6 Testing quadrants
 
-Quadrants combine two dimensions: **business-facing vs technology-facing**, and **support the team vs critique the product**.
+Testing quadrants organize Agile testing using two dimensions:
 
-| Quadrant | Orientation | Typical contents |
+- **Business-facing vs technology-facing:** does the test focus on user/business behavior or technical implementation and quality?
+- **Support the team vs critique the product:** does the test guide development or evaluate the resulting product against expectations?
+
+| | Supports the team | Critiques the product |
 |---|---|---|
-| Q1 | Technology-facing; supports team | Component and component-integration tests; usually automated in CI |
-| Q2 | Business-facing; supports team | Functional examples, story tests, prototypes, API tests, simulations; manual or automated |
-| Q3 | Business-facing; critiques product | Exploratory, usability, and user acceptance tests; often manual |
-| Q4 | Technology-facing; critiques product | Smoke and non-functional tests except usability; often automated |
+| **Technology-facing** | **Q1** | **Q4** |
+| **Business-facing** | **Q2** | **Q3** |
 
-Quadrants are a communication and coverage model, not a sequence of phases.
+### Q1: technology-facing, supports the team
+
+Q1 gives developers fast feedback about the internal building blocks. It contains **component tests** and **component-integration tests**. These tests should normally be automated and included in continuous integration.
+
+Teaching example: an automated component test verifies that `calculateDiscount(100, VIP)` returns `15`.
+
+> **Memory:** Q1 = the code works.
+
+### Q2: business-facing, supports the team
+
+Q2 describes and checks the functionality the business expects. It contains **functional tests, examples, user-story tests, user-experience prototypes, API tests, and simulations**. These tests check acceptance criteria and may be manual or automated.
+
+Teaching example: an API test verifies that a VIP customer receives the required 15% discount.
+
+> **Memory:** Q2 = the feature works.
+
+### Q3: business-facing, critiques the product
+
+Q3 evaluates the working product from the user's perspective. It contains **exploratory testing, usability testing, and user acceptance testing**. These tests are user-oriented and are often manual.
+
+Teaching example: a tester explores checkout and discovers that users cannot understand why their voucher was rejected.
+
+> **Memory:** Q3 = users judge it.
+
+### Q4: technology-facing, critiques the product
+
+Q4 challenges the product's technical quality. It contains **smoke tests and non-functional tests except usability tests**, and these tests are often automated.
+
+Teaching example: a load test checks whether checkout remains responsive with 5,000 simultaneous users.
+
+> **Memory:** Q4 = stress it.
+
+For exam questions, remember that **API testing is listed in Q2**, **usability testing is in Q3**, and **smoke and other non-functional testing are in Q4**. The quadrants are a communication and coverage model, not four sequential test phases:
+
+> **Q1 code -> Q2 features -> Q3 users -> Q4 technical quality.**
+
+*(CTFL v4.0.1, section 5.1.7, PDF page 51.)*
 
 ## 5.7 Risk management
 
